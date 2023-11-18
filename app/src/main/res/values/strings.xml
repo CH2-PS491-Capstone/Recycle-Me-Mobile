@@ -26,4 +26,80 @@
     <string name="title_favorite">Favorite</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="phone_name">Nama HP</string>
+    <string name="description">Deskripsi</string>
+    <string-array name="data_name">
+        <item>Asus ROG Phone 6 Series</item>
+        <item>Asus Zenfone 9</item>
+        <item>Infinix Zero 5G 2023</item>
+        <item>Poco M5</item>
+        <item>iPhone 14 Pro/ Pro Max</item>
+        <item>Samsung Galaxy A54 5G</item>
+        <item>Samsung Galaxy S21 FE</item>
+        <item>Samsung Galaxy S23 Ultra</item>
+        <item>Samsung Galaxy Z Flip 4</item>
+        <item>Vivo V23 5G</item>
+    </string-array>
+    <string-array name="data_description">
+        <item>ROG Phone 6 series memakai chipset Qualcomm Snapdragon 8+ Gen 1 (4 nm) dan RAM hingga 18 GB. Merupakan prosesor tercepat yang ada saat ini untuk ponsel Android serta secara optimisasi ROG Phone 6 juga merupakan yang terbaik. Ditambah Layar AMOLED berdimensi 6,78 inci dengan refresh rate 165Hz dan 300Hz touch sampling rate merupakan layar dengan respon tercepat saat ini dan sangat bagus untuk bermain game.\n
+            \nAsus ROG Phone 6 juga memiliki baterai 6.000 mAh yang sangat besar, sehingga kamu dapat bermain game lebih lama dan fitur pengisian daya cepat hingga 65W memastikan kamu tidak perlu menunggu lama untuk bermain kembali.\n
+            \nDari segi performa ROG Phone 6 ini tidak tertandingi smartphone Android manapun. Namun ROG Phone 6 memiliki minus di kamera yang tergolong standar untuk kualitas smartphone kelas atas (meski sudah tergolong bagus).\n</item>
+        <item>Asus Zenfone 9 merupakan rekomendasi HP dengan desain kompak terbaik pilihan kami. Sangat bagus untuk kamu yang ingin HP kecil yang mudah di masukan kantong. Meski kecil, HP ini hadir dengan performa tinggi dengan menggunakan chipset terbaik yang ada di Android saat ini.\n
+            \nSelain performa kelas atas, Zenfone 9 juga punya fitur yang lengkap dari sudah 5G hingga tahan air dengan sertifikasi IP68. Kameranya juga mengesankan, dimana sensor kamera mendukung autofokus plus stabilisasi dalam resolusi perekaman tertinggi. Kekurangan yang terasa mungkin dari suhu perangkat tergolong gampang panas, jika digunakan bermain game berat seperti Genshin Impact.\n
+            \nMengingat body smartphone yang ramping dan kecil. Jadi sedikit kurang disarankan bagi kamu yang hobi main game berat lama-lama di smartphone.</item>
+        <item>Infinix Zero 5G 2023 merupakan rekomendasi HP yang paling worth it di tahun 2023. Spesifikasinya hampir setara HP kelas menengah ke atas, namun dibanderol dengan harga yang terlampau murah. Di mana kebanyakan HP dengan chipset Dimensity 920 5G harganya mulai 6 juta rupiah ke atas.\n
+            \nNamun, Infinix Zero 5G 2023 hanya dibanderol dengan harga rilis Rp 3.699.000. Dengan penjualan pertama mulai 21 Februari 2023. Flash Sale ke dua pada 11 Maret 2023 dengan harga spesial Rp 3.499.000 untuk penyimpanan 256GB  RAM 8GB.\n
+            \nBukan hanya chipset Dimensity 920 5G yang jadi satu-satunya nilai jual, tetapi Infinix Zero 5G 2023 juga hadir dengan fitur yang lengkap. Dari sudah 5G, gyro yang sudah berbasis hardware, sensor NFC untuk pembayaran dan layar yang responsif dengan kecepatan refresh 120Hz.\n
+            \nSelain itu, hasil foto dari kameranya juga tergolong baik dan baterainya juga awet. Infinix Zero 5G 2023 tentunya tidak sempurna dan memiliki beberapa kekurangan, di antaranya sensor tambahan di kamera utama terasa kurang berguna, microphone juga kurang oke dan speaker masih mono. Selain itu, jika kamu sudah punya Infinix Zero 5G ini bukanlah upgrade besar.\n
+            \nSecara keseluruhan, Infinix Zero 5G 2023 merupakan HP yang sangat direkomendasikan bagi kamu yang mementingkan performa dari sebuah smartphone. Pasalanya, Infinix Zero 5G 2023 merupakan HP harga 3 jutaan tercepat saat ini.</item>
+        <item>Biasanya seri Redmi selalu jadi favorit di kelas entry level, namun di tahun 2022 sedikit mengecewakan dimana Redmi Note 11 tidak banyak mengalami peningkatan dari seri sebelumnya. Kami lebih merekomendasikan Poco M5 untuk HP spek tinggi harga murah terbaru 2022. Rekomendasikan jika kamu mencari HP murah paling wort it di harga 2 juta.\n
+            \nDesainnya memang biasa saja, tapi secara kualitas bagus dan cukup enak dipegang. Layarnya besar dengan performa paling oke untuk main game atau nonton video di harga 2 jutaan. Hal ini berkat chipset Helio G99 yang sebenarnya kebanyakan ada di HP 3 jutaan. Selain itu hasil fotonya bagus untuk ukuran entry-level, cuman kurang diperekaman video. Baterainya juga awet dan sudah dilengkapi fitur pengisian cepat, meski hanya 18W.\n
+            \nHal yang perlu diperhatikan dan menjadi kekurangan Poco M5 lainnya ada di kecerahan layar yang kurang baik jika digunakan diluar ruangan. Selain itu, HP ini juga tidak punya sensor gyro.</item>
+        <item>Bagi kami, iPhone 14 Pro / Pro Max adalah HP dengan kamera terbaik yang paling ideal untuk fotografi. Selain itu, iPhone 14 Pro Max juga bisa dikatakan sebagai HP terbagus di dunia, jika budget kamu tidak terbatas. Memang kamera Google Pixel 7 Pro sedikit lebih baik, tapi tidak tersedia secara resmi di Indonesia. Apalagi nilai keseluruhan jelas iPhone lebih unggul. Chipset Apple Bionic A16 merupakan salah satu prosesor mobile tercepat saat ini dan optimasi perangkat lunak iOS juga yang terbaik.\n
+            \nLayar 6,7" terlihat mengesankan serta peningkatan kamera baru memungkinkan hasil foto jauh lebih cerah atau resolusi lebih tajam di ProRAW. Dan Mode Aksi baru untuk video sangat halus dan keren. Bagian terbaiknya adalah masa pakai baterai yang tahan lama.\n
+            \nKekurangannya,iPhone 14 Pro / Pro Max stoknya tergolong agak langka. Sehingga kebanyakan seller menjualnya dengan harga yang lebih mahal dari harga resminya.</item>
+        <item>Samsung Galaxy A54 5G merupakan HP mid range terbaik 2023 di Indonesia. HP Samsung terbaru di kelas menengah ini membawa beberapa peningkatan yang signifikan dari sebelumnya. Desain, performa, dan kameranya jauh lebih bagus. Apalagi harganya tidak naik dari generasi sebelumnya.\n
+            \nSamsung Galaxy A54 5G secara keseluruhan sangat bagus dan fiturnya juga sudah lengkap. Layar sAMOLED 120Hz-nya fantastis, kamera utama sangat bagus dengan OIS yang lebih baik dari sebelumnya, dan lensa ultra wide juga sekarang mendukung 4K. Paling menonjol ada di peningkatan kamera selfie yang sudah mendukung perekaman 60fps hingga 4K 30fps. Hal yang tidak ada di HP kelas menengah, bahkan HP kelas atas pun banyak yang masih 1080p 30fps. Meski ada kekurangan di perekaman mode 4K yang belum mendukung stabilizer.\n
+            \nPeningkatan performa ke Exynos 1380 (5 nm) juga terasa signifikan, performa gaming meningkat dan mendekati Snapdragon 778G. Meski memang sayangnyaExynos masih belum stabil jika digunakan untuk main game berat dan disarankan menggunakan kipas pendingin.\n
+            \nUntungnya efisiensi daya sangat baik sehingga baterai awet. Dan seperti seri sebelumnya Galaxy A54 5G juga memiliki sertifikasi IP67 untuk tahan air hingga kedalaman 1 meter, selama 30 menit. Keunggulan yang tidak dimiliki pesaing lain dikelas menengah.\n
+            \nSelain itu, Galaxy A54 5G juga punya nilai ekstra di dukungan perangkat lunak. Kamu dijamin update OS utama selama 3 periode, serta 4 tahun patch keamanan. Sehingga smartphone ini bisa kamu gunakan untuk jangka waktu yang lama.</item>
+        <item>Secara keseluruhan, SamsungGalaxy S21 FE 5G adalah HP terbaik di Indonesia bagi kebanyakan orang. Dikarenakan harga dan fitur yang ditawarkan sangat baik dan sesuai untuk banyak kebutuhan. Dari sudah 5G, performa kelas flagship, kamera bagus dan juga tahan air. Meski lebih murah, spesifikasi yang ditawarkan setara dengan Galaxy S21 series yang harganya belasan juta.\n
+            \nHal yang menjadi kekurangan,Samsung Galaxy S21 FE bukanlah smartphone yang bagus untuk main game berat. Karena chipsetExynos 2100 (5 nm) kurang optimal untuk beberapa game dan tergolong cepat panas jika digunakan untuk main game berat dalam jangka lama.\n
+            \nMengenai harga dan ketersediaan, di Indonesia Galaxy S21 FE dengan varian paling murah dibandrol dengan harga rilis mulai dari Rp. 8.999.000.</item>
+        <item>Samsung Galaxy S23 Ultra juga didesain lebih ramah lingkungan dengan bahan daur ulang dan jejak karbon yang lebih sedikit. Namun desain tetap elegan dengan bingkai logam yang cantik dan menawan.\n
+            \nDisisi kamera,Samsung Galaxy S23 Ultra sekarang jauh lebih epik dengan mengemas sensor 200MP yang disertaiexpert RAW yang hebat dari memotret hingga mengedit. Selain itu,lensa dengan sensor piksel 0.6µm sekarang dapat menangkap lebih banyak cahaya sehingga low-light fotografi jauh lebih mengesankan dari sebelumnya. Ditambah fitur Nightography yang lebih baik dari sebelumnya membantu ponsel menghasilkan foto atau video lebih jernih di malam hari.Selain itu, mode Directors View danteknologi stabilisasi video yang canggih membuat Galaxy S23 Ultra juga sangat bagus untuk Vlog.\n
+            \nKekurangan S23 Ultra mungkin hanya dari harganya yang mahal serta tidak adanya slot kartu microSD. Namun ada Samsung Galaxy S21 FE yang lebih murah dengan harga 7 jutaan (pilihan terbaik jika dinilai dari keseimbangan harga dan fitur-fitur kelas atas dari HP Android).</item>
+        <item>Galaxy Z Flip 4 adalah ponsel lipat terbaik saat ini yang datang dengan penawaran harga lebih baik dari sebelumnya. Meski perubahan dari ponsel flip generasi lalu tidak revolusioner. Bagi kami desain model terbaru terlihat lebih segar. Dan layar di kamera belakang yang bisa difungsikan untuk preview foto dan video serta fitur lainnya mengesankan.\n
+            \nDesain bodi keseluruhan terasa jauh lebih kokoh, tahan air (IPX8) dan spesifikasi layar utama berukuran 6,7 inci FHD+ dengan kecepatan refresh 120Hz juga terlihat jauh lebih bagus. Peningkatan ada di chipset Snapdragon 8+ Gen 1 (4 nm) yang tentunya lebih cepat dari sebelumnya. Selain itu baterainya juga ada sedikit peningkatan, meski memang masih meragukan. Sayangnya tidak ada peningkatan berarti pada kamera (meski bagus, untuk kelas flagship dan harganya yang mahal terlihat biasa).\n
+            \nSelain desain super kompak, keunggulan Galaxy Z Flip 4 seperti sebelumnya menawarkan fitur lipat dengan Mode Flex yang membagi layar menjadi dua, sehingga ketika menggunakan aplikasi seperti YouTube, video ditampilkan di bagian atas layar, sementara kamu dapat menggulir untuk info lebih lanjut dan meninggalkan komentar menggunakan bagian bawah layar. Galaxy Z Flip juga mendukung multitasking, memungkinkan menjalankan banyak aplikasi sekaligus.</item>
+        <item>Vivo V21 5G bisa jadi pilihan jika kamu suka selfie. Smartphone yang sangat cocok bagi kamu yang lebih mengutamakan desain dan kualitas kamera. Dimana kamera depan dan utama sama bagusnya.\n
+            \nDesain V21 5G terlihat elegan dengan frame almunium berdesain flat dan rounded corner yang menampilkan kesan mewah. Materialnya juga sangat berkualitas dan nyaman digenggam. Ditambah inovasi baru bernamacolor changing yang hadir divarian warna Sunshine Gold memungkinkan bagian belakang smartphone bisa berubah warna jikaterkena sinar UV atau sinar matahari selama beberapa waktu. Selain itu, desain belakang Vivo V23 juga bisa digambar dengan berkreasimenempelkan objek atau membuat pola, lalu biarkan terkena sinar matahari.\n
+            \nKekurangan dari V21 5G ini ada pada chipset yang bukan terbaik dikelasnya. Sebagai gantinya V21 5G memiliki kamera dan desain yang lebih unggul dari kompetitor dikelas yang sama. Meski begitu, performa secara keseluruhansudah terbilang tinggi dan lebih dari cukup untuk berbagai kebutuhan sehari-hari seperti media sosial dan masih sanggup bermain game berat. Performa juga stabil karena sistem pendingin yang bagus. Selain itu daya tahan baterainya juga cukup baik dan sudah mendukung fast charging hingga 44W (terbilang cepat).</item>
+    </string-array>
+    <integer-array name="data_photo">
+        <item>@drawable/asus_rog</item>
+        <item>@drawable/asus_zenfone</item>
+        <item>@drawable/infinix_zero</item>
+        <item>@drawable/poco_m5</item>
+        <item>@drawable/iphone_14</item>
+        <item>@drawable/samsung_a54</item>
+        <item>@drawable/samsung_s21</item>
+        <item>@drawable/samsung_s23</item>
+        <item>@drawable/samsung_zflip4</item>
+        <item>@drawable/vivo_v23</item>
+    </integer-array>
+    <string name="price">Harga</string>
+    <string-array name="data_price">
+        <item>Rp 10.150.000</item>
+        <item>Rp 7.999.000</item>
+        <item>Rp 3.499.000</item>
+        <item>Rp 2.099.000</item>
+        <item>Rp 18.999.000</item>
+        <item>Rp 5.999.000</item>
+        <item>Rp 7.649.000</item>
+        <item>Rp 19.999.000</item>
+        <item>Rp 12.999.000</item>
+        <item>Rp 4.500.000</item>
+    </string-array>
 </resources>
