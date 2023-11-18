@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">RecycleMe</string>
+    <string name="logo">RecycleMe</string>
+    <string name="btnLogin">Login</string>
+    <string name="btnRegister">Register</string>
+    <string name="welcome">Selamat Datang</string>
+    <string name="paragraph">Yuk, cintai bumi kita dengan cara tidak membuang sampah sembarangan dan mulai biasakan kegiatan daur ulang. Setiap sampah yang berhasil kamu daur ulang, akan kami hargai.</string>
+    <string name="logo_login">Vector Recycler</string>
+    <string name="yuk_login_dulu">Yuk, segera login</string>
+    <string name="login_description">Supaya kamu bisa bergabung dengan yang lain dan membantu menghijaukan lingkunganmu</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="logo_sign_up">Kid doing recycler</string>
+    <string name="signup_title">Yuk, gabung dengan kami</string>
+    <string name="register_description">Bantu generasi selanjutnya supaya bisa mendapatkan kehidupan yang bersih dan nyaman</string>
+    <string name="nama">Name</string>
+    <string name="hintNama">Nama kamu</string>
+    <string name="hintEmail">Email kamu</string>
+    <string name="hintPassword">Password kamu</string>
+    <string name="title_activity_bottom_navigation">BottomNavigation</string>
+    <string name="title_home">Article</string>
+    <string name="title_dashboard">Recycling</string>
+    <string name="title_notifications">Scan</string>
+    <string name="title_activity_dashboard">DashboardActivity</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_favorite">Favorite</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
