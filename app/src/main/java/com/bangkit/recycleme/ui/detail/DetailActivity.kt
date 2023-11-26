@@ -1,13 +1,12 @@
-package com.bangkit.recycleme
+package com.bangkit.recycleme.ui.detail
 
-import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
+import com.bangkit.recycleme.models.Phone
+import com.bangkit.recycleme.R
 
 class DetailActivity : AppCompatActivity() {
     private lateinit var tvDetailName: TextView

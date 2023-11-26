@@ -1,13 +1,12 @@
-package com.bangkit.recycleme
+package com.bangkit.recycleme.customcomponent
 
 import android.content.Context
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.AttributeSet
-import android.util.Patterns
 import androidx.appcompat.widget.AppCompatEditText
 
-class CustomEmail : AppCompatEditText {
+class CustomPassword : AppCompatEditText {
     constructor(context: Context) : super(context) {
         init()
     }
@@ -25,8 +24,11 @@ class CustomEmail : AppCompatEditText {
             }
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                if (!s.isNullOrEmpty() && !Patterns.EMAIL_ADDRESS.matcher(s).matches())
-                    error = "Format email salah. Harus menggunaknan '@'"
+                if (s.toString().length < 8) {
+                    setError("Password tidak boleh kurang dari 8 karakter", null)
+                } else {
+                    error = null
+                }
             }
 
             override fun afterTextChanged(p0: Editable?) {

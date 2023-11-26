@@ -1,4 +1,4 @@
-package com.bangkit.recycleme
+package com.bangkit.recycleme.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bangkit.recycleme.models.Phone
+import com.bangkit.recycleme.R
 
 class ListPhoneAdapter(private val listPhone: ArrayList<Phone>) : RecyclerView.Adapter<ListPhoneAdapter.ListViewHolder>() {
     private lateinit var onItemClickCallback: OnItemClickCallback

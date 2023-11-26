@@ -3,20 +3,20 @@
     <string name="logo">RecycleMe</string>
     <string name="btnLogin">Login</string>
     <string name="btnRegister">Register</string>
-    <string name="welcome">Selamat Datang</string>
-    <string name="paragraph">Yuk, cintai bumi kita dengan cara tidak membuang sampah sembarangan dan mulai biasakan kegiatan daur ulang. Setiap sampah yang berhasil kamu daur ulang, akan kami hargai.</string>
+    <string name="welcome">Welcome!</string>
+    <string name="paragraph">Yuk, mulai segera kegiatan daur ulang kamu dan hijaukan kembali lingkunganmu.</string>
     <string name="logo_login">Vector Recycler</string>
     <string name="yuk_login_dulu">Yuk, segera login</string>
-    <string name="login_description">Supaya kamu bisa bergabung dengan yang lain dan membantu menghijaukan lingkunganmu</string>
+    <string name="login_description">Supaya kamu bisa bergabung dengan yang lain dan membantu menghijaukan lingkunganmu.</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="logo_sign_up">Kid doing recycler</string>
     <string name="signup_title">Yuk, gabung dengan kami</string>
-    <string name="register_description">Bantu generasi selanjutnya supaya bisa mendapatkan kehidupan yang bersih dan nyaman</string>
+    <string name="register_description">Bantu generasi selanjutnya supaya bisa mendapatkan kehidupan yang bersih dan nyaman.</string>
     <string name="nama">Name</string>
-    <string name="hintNama">Nama kamu</string>
-    <string name="hintEmail">Email kamu</string>
-    <string name="hintPassword">Password kamu</string>
+    <string name="hintNama">Name</string>
+    <string name="hintEmail">Email</string>
+    <string name="hintPassword">Password</string>
     <string name="title_activity_bottom_navigation">BottomNavigation</string>
     <string name="title_home">Article</string>
     <string name="title_dashboard">Recycling</string>
@@ -102,4 +102,22 @@
         <item>Rp 12.999.000</item>
         <item>Rp 4.500.000</item>
     </string-array>
+    <string name="upload">Cek Hasil Daur Ulang</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="scan">Mulai Scan</string>
+    <string name="description_recycling">Deskripsikan hasil daur ulang kamu</string>
+    <string name="profile_logo">Profile Logo</string>
+    <string name="buttonLogout">Logout</string>
+    <string name="description_image">Image</string>
+    <string name="slide_title">Title</string>
+    <string name="slide_description">Description</string>
+    <string name="skip_intro">SKIP INTRO</string>
+    <string name="buttonNext">Next</string>
+    <string name="recyclingArticle">Recycling Article</string>
+    <string name="recyclingArticleDesc">Temukan berbagai macam artikel tentang daur ulang sampah sesuai kategorinya yang bisa membantu menemukan solusi atas permasalahan di lingkungan kamu.</string>
+    <string name="scanTrash">Trash Scan</string>
+    <string name="scanTrashDesc">Scan sampah supaya kamu bisa mengetahui kategorinya dan bagaimana cara mendaur ulang jenis sampah tersebut.</string>
+    <string name="levelUp">Level Up!</string>
+    <string name="levelUpDesc">Kamu bisa atur kegiatan daur ulang yang sudah kamu lakukan. Semakin banyak kamu melakukan daur ulang, semakin terjaga juga kebersihan di lingkungan tempat tinggal kamu.</string>
 </resources>

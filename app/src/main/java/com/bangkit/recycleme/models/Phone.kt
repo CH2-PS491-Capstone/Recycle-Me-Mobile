@@ -1,4 +1,4 @@
-package com.bangkit.recycleme
+package com.bangkit.recycleme.models
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
