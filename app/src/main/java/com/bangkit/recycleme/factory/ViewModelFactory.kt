@@ -3,6 +3,7 @@ package com.bangkit.recycleme.factory
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.bangkit.recycleme.detail.DetailRecyclingViewModel
 import com.bangkit.recycleme.di.Injection
 import com.bangkit.recycleme.di.UserRepository
 import com.bangkit.recycleme.ui.welcome.AuthViewModel
@@ -30,6 +31,9 @@ class ViewModelFactory(private val repository: UserRepository) : ViewModelProvid
             }
             modelClass.isAssignableFrom(RecyclingResultViewModel::class.java) -> {
                 RecyclingResultViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(DetailRecyclingViewModel::class.java) -> {
+                DetailRecyclingViewModel(repository) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }

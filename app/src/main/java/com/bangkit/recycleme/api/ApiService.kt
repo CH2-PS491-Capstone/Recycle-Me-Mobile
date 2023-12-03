@@ -1,5 +1,6 @@
 package com.bangkit.recycleme.api
 
+import com.bangkit.recycleme.models.DetailResponse
 import com.bangkit.recycleme.models.LoginResponse
 import com.bangkit.recycleme.models.RecyclingAddResponse
 import com.bangkit.recycleme.models.RecyclingResponse
@@ -13,6 +14,7 @@ import retrofit2.http.GET
 import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.Part
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 data class RegisterRequest(
@@ -45,4 +47,9 @@ interface ApiService {
 
     @GET("recycling/results")
     fun getRecycling(): Call<RecyclingResponse>
+
+    @GET("recycling/results/{id}")
+    fun detailRecycling(
+        @Path("id") id: String,
+    ): Call<DetailResponse>
 }

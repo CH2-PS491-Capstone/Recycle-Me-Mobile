@@ -15,6 +15,7 @@ import com.bangkit.recycleme.models.UserModel
 import com.bangkit.recycleme.di.UserPreference
 import com.bangkit.recycleme.factory.ViewModelFactory
 import com.bangkit.recycleme.di.dataStore
+import com.bangkit.recycleme.ui.recyclingresult.RecyclingResult
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -53,6 +54,11 @@ class ProfileFragment : Fragment() {
             viewModel.logout()
             val intent = Intent(requireContext(), MainActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
+        }
+
+        binding.buttonRecyclingUser.setOnClickListener {
+            val intent = Intent(requireContext(), RecyclingResult::class.java)
             startActivity(intent)
         }
     }

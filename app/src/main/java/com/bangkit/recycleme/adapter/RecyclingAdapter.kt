@@ -19,7 +19,6 @@ class RecyclingAdapter(private val onClickListener: View.OnClickListener) :
     inner class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val descriptionTextView: TextView = itemView.findViewById(R.id.nameRecycling)
         private val recyclingImageView: ImageView = itemView.findViewById(R.id.imageRecycling)
-        private val nameViewStory: TextView = itemView.findViewById(R.id.nameUser)
 
         fun bind(recycling: ListRecyclingItem) {
             val maxWords = 50
@@ -34,7 +33,6 @@ class RecyclingAdapter(private val onClickListener: View.OnClickListener) :
             }
 
             descriptionTextView.text = limitedDescription
-            nameViewStory.text = recycling.nama
 
             Glide.with(itemView.context)
                 .load(recycling.photoUrl)
