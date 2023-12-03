@@ -7,6 +7,8 @@ import com.bangkit.recycleme.di.Injection
 import com.bangkit.recycleme.di.UserRepository
 import com.bangkit.recycleme.ui.welcome.AuthViewModel
 import com.bangkit.recycleme.ui.login.LoginViewModel
+import com.bangkit.recycleme.ui.recycling.RecyclingViewModel
+import com.bangkit.recycleme.ui.recyclingresult.RecyclingResultViewModel
 import com.bangkit.recycleme.ui.register.RegisterViewModel
 
 class ViewModelFactory(private val repository: UserRepository) : ViewModelProvider.NewInstanceFactory() {
@@ -22,6 +24,12 @@ class ViewModelFactory(private val repository: UserRepository) : ViewModelProvid
             }
             modelClass.isAssignableFrom(AuthViewModel::class.java) -> {
                 AuthViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(RecyclingViewModel::class.java) -> {
+                RecyclingViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(RecyclingResultViewModel::class.java) -> {
+                RecyclingResultViewModel(repository) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }

@@ -12,20 +12,6 @@ import com.bangkit.recycleme.ui.register.RegisterActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private val viewModel by viewModels<AuthViewModel> {
-        ViewModelFactory.getInstance(this)
-    }
-
-    override fun onStart() {
-        super.onStart()
-        viewModel.getSession().observe(this) { user ->
-            if (user.isLogin) {
-                val intent = Intent(this, DashboardActivity::class.java)
-                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                startActivity(intent)
-            }
-        }
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
