@@ -23,6 +23,7 @@ class DashboardActivity : AppCompatActivity() {
 
         val toolbar: Toolbar = binding.toolbar
         setSupportActionBar(toolbar)
+        supportActionBar?.hide()
 
         val navView: BottomNavigationView = binding.navView
 

@@ -45,6 +45,7 @@
         <activity
             android:name=".ui.dashboard.DashboardActivity"
             android:exported="false"
+
             android:label="@string/title_activity_dashboard"
             android:windowSoftInputMode="adjustNothing" />
         <activity

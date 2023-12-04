@@ -15,13 +15,16 @@ import com.bangkit.recycleme.di.UserPreference
 import com.bangkit.recycleme.factory.ViewModelFactory
 import com.bangkit.recycleme.di.dataStore
 import com.google.gson.Gson
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class LoginActivity : AppCompatActivity() {
     private val viewModel by viewModels<LoginViewModel> {
         ViewModelFactory.getInstance(this)
     }
 
+    private lateinit var userPreference: UserPreference
     private lateinit var binding: ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

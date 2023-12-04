@@ -5,3 +5,4 @@ data class UserModel(
     var token: String,
     val isLogin: Boolean = false
 )
+

@@ -6,11 +6,16 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.bangkit.recycleme.models.ErrorResponse
 import com.bangkit.recycleme.databinding.ActivityRegisterBinding
+import com.bangkit.recycleme.di.UserPreference
+import com.bangkit.recycleme.di.dataStore
 import com.bangkit.recycleme.factory.ViewModelFactory
+import com.bangkit.recycleme.models.UserModel
 import com.bangkit.recycleme.ui.login.LoginActivity
 import com.google.gson.Gson
+import kotlinx.coroutines.launch
 
 class RegisterActivity : AppCompatActivity() {
     private val viewModel by viewModels<RegisterViewModel> {

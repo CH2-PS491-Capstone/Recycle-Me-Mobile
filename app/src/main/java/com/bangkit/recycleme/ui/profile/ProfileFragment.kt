@@ -7,15 +7,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
+import com.bangkit.recycleme.R
 import com.bangkit.recycleme.ui.welcome.AuthViewModel
 import com.bangkit.recycleme.ui.welcome.MainActivity
 import com.bangkit.recycleme.databinding.FragmentProfileBinding
+import com.bangkit.recycleme.detail.DetailRecyclingViewModel
 import com.bangkit.recycleme.models.UserModel
 import com.bangkit.recycleme.di.UserPreference
 import com.bangkit.recycleme.factory.ViewModelFactory
 import com.bangkit.recycleme.di.dataStore
+import com.bangkit.recycleme.models.Recycling
 import com.bangkit.recycleme.ui.recyclingresult.RecyclingResult
+import com.bangkit.recycleme.ui.recyclingresult.RecyclingResultViewModel
+import com.bumptech.glide.Glide
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -35,6 +41,7 @@ class ProfileFragment : Fragment() {
     ): View {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding.root
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -45,25 +52,25 @@ class ProfileFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launch(Dispatchers.IO) {
             userPreference.getSession().collect { userModel ->
                 withContext(Dispatchers.Main) {
-                    displayUserData(userModel)
+                    displayEmail(userModel)
                 }
             }
         }
 
-        binding.logoutButton.setOnClickListener {
+        binding.buttonLogout.setOnClickListener {
             viewModel.logout()
             val intent = Intent(requireContext(), MainActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
         }
 
-        binding.buttonRecyclingUser.setOnClickListener {
+        binding.buttonRecycling.setOnClickListener {
             val intent = Intent(requireContext(), RecyclingResult::class.java)
             startActivity(intent)
         }
     }
 
-    private fun displayUserData(userModel: UserModel) {
+    private fun displayEmail(userModel: UserModel) {
         val emailTextView = binding.tvProfileEmail
         emailTextView.text = userModel.email
     }

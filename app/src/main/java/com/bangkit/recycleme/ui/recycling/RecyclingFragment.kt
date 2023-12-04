@@ -164,5 +164,8 @@ class RecyclingFragment : Fragment() {
 
     companion object {
         private const val REQUIRED_PERMISSION = Manifest.permission.CAMERA
+        fun newInstance(): RecyclingFragment {
+            return RecyclingFragment()
+        }
     }
 }
