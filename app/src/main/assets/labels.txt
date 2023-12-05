@@ -1,0 +1,8 @@
+elektronik
+kaca
+kain
+kardus
+kertas
+logam
+organik 
+plastik

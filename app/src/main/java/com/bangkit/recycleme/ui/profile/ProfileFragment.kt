@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import com.bangkit.recycleme.R
+import com.bangkit.recycleme.ScanActivity
 import com.bangkit.recycleme.ui.welcome.AuthViewModel
 import com.bangkit.recycleme.ui.welcome.MainActivity
 import com.bangkit.recycleme.databinding.FragmentProfileBinding
