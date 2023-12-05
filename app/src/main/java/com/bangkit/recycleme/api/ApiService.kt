@@ -5,6 +5,7 @@ import com.bangkit.recycleme.models.LoginResponse
 import com.bangkit.recycleme.models.RecyclingAddResponse
 import com.bangkit.recycleme.models.RecyclingResponse
 import com.bangkit.recycleme.models.RegisterResponse
+import com.bangkit.recycleme.models.TotalResponse
 import com.bangkit.recycleme.ui.recyclingresult.RecyclingResult
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -52,4 +53,7 @@ interface ApiService {
     fun detailRecycling(
         @Path("id") id: String,
     ): Call<DetailResponse>
+
+    @GET("user/total")
+    fun getTotal(): Call<TotalResponse>
 }

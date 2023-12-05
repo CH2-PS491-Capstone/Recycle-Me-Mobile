@@ -9,9 +9,9 @@
     <ImageView
         android:id="@+id/tv_pict_welcome"
         android:layout_width="match_parent"
-        android:layout_height="530dp"
+        android:layout_height="320dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/image_welcome"
+        android:src="@drawable/background_fragment_profile"
         android:contentDescription="@string/logo"/>
 
     <ImageView
@@ -30,6 +30,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/open_sans"
         android:text="@string/email"
+        android:textColor="@color/black"
         android:textStyle="bold"
         android:textSize="20sp"
         android:gravity="center"
@@ -42,6 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_profile_email">
@@ -55,13 +57,13 @@
             android:background="@drawable/shape_profile">
 
             <TextView
+                android:id="@+id/tvCoinCount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:textSize="30sp"
                 android:textStyle="bold"
-                android:textColor="@color/white"
-                android:text="50"/>
+                android:textColor="@color/white" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -91,13 +93,13 @@
             android:layout_marginRight="10dp">
 
             <TextView
+                android:id="@+id/tvRecyclingCount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:textSize="30sp"
                 android:textStyle="bold"
-                android:textColor="@color/white"
-                android:text="17x"/>
+                android:textColor="@color/white" />
 
             <TextView
                 android:layout_width="wrap_content"

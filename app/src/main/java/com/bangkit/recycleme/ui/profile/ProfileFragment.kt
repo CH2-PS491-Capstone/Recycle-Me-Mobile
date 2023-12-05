@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
@@ -19,17 +20,25 @@ import com.bangkit.recycleme.di.UserPreference
 import com.bangkit.recycleme.factory.ViewModelFactory
 import com.bangkit.recycleme.di.dataStore
 import com.bangkit.recycleme.models.Recycling
+import com.bangkit.recycleme.models.RecyclingResponse
 import com.bangkit.recycleme.ui.recyclingresult.RecyclingResult
 import com.bangkit.recycleme.ui.recyclingresult.RecyclingResultViewModel
 import com.bumptech.glide.Glide
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 
 class ProfileFragment : Fragment() {
     private val viewModel by viewModels<AuthViewModel> {
         ViewModelFactory.getInstance(requireContext())
     }
+
+    private val viewModelTotal by viewModels<ProfileViewModel> {
+        ViewModelFactory.getInstance(requireContext())
+    }
+
     private lateinit var userPreference: UserPreference
 
     private var _binding: FragmentProfileBinding? = null
@@ -55,6 +64,23 @@ class ProfileFragment : Fragment() {
                     displayEmail(userModel)
                 }
             }
+        }
+
+        val pref = UserPreference.getInstance(requireContext().dataStore)
+        val token = runBlocking { pref.getSession().first().token }
+
+        viewModelTotal.loadTotalData(token)
+
+        viewModelTotal.totalCoins.observe(viewLifecycleOwner) { totalCoins ->
+            binding.tvCoinCount.text = totalCoins.toString()
+        }
+
+        viewModelTotal.totalRecycling.observe(viewLifecycleOwner) { totalRecycling ->
+            binding.tvRecyclingCount.text = totalRecycling.toString()+"x"
+        }
+
+        viewModelTotal.error.observe(viewLifecycleOwner) { error ->
+            Toast.makeText(requireContext(), "Error: $error", Toast.LENGTH_SHORT).show()
         }
 
         binding.buttonLogout.setOnClickListener {
