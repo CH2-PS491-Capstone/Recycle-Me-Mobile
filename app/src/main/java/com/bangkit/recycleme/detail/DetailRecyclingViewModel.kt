@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.bangkit.recycleme.api.ApiConfig
 import com.bangkit.recycleme.di.UserRepository
+import com.bangkit.recycleme.models.DeleteResponse
 import com.bangkit.recycleme.models.DetailResponse
 import com.bangkit.recycleme.models.Recycling
 import retrofit2.Call
@@ -35,5 +36,28 @@ class DetailRecyclingViewModel(repository: UserRepository) : ViewModel() {
                 _error.value = "Failure: ${t.message}"
             }
         })
+    }
+
+    fun deleteRecycling(token: String, deleteId: String) {
+        val call = ApiConfig.getApiService(token).deleteRecycling(deleteId)
+        call.enqueue(object : Callback<DeleteResponse> {
+            override fun onResponse(call: Call<DeleteResponse>, response: Response<DeleteResponse>) {
+                if (response.isSuccessful) {
+                    // Set _recyclingDetail.value to null after successful deletion
+                    _recyclingDetail.value = null
+                } else {
+                    handleErrorResponse(response)
+                }
+            }
+
+            override fun onFailure(call: Call<DeleteResponse>, t: Throwable) {
+                _error.value = "Failure: ${t.message}"
+            }
+        })
+    }
+
+    private fun handleErrorResponse(response: Response<*>) {
+        val errorMessage = "Error: ${response.code()} ${response.message()}"
+        _error.value = errorMessage
     }
 }

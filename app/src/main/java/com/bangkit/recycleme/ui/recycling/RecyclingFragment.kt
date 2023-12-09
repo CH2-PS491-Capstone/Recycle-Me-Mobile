@@ -12,6 +12,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.bangkit.recycleme.databinding.FragmentRecyclingBinding
 import android.Manifest
+import android.app.AlertDialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
@@ -80,7 +81,9 @@ class RecyclingFragment : Fragment() {
             requestPermissionLauncher.launch(REQUIRED_PERMISSION)
         }
 
-        binding.galleryButton.setOnClickListener { startGallery() }
+        binding.galleryButton.setOnClickListener {
+            showPopup()
+             }
 //        binding.cameraButton.setOnClickListener { startCamera() }
 //        binding.cameraButton.setOnClickListener { startCameraX() }
         binding.uploadButton.setOnClickListener {
@@ -164,8 +167,25 @@ class RecyclingFragment : Fragment() {
 
     companion object {
         private const val REQUIRED_PERMISSION = Manifest.permission.CAMERA
-        fun newInstance(): RecyclingFragment {
-            return RecyclingFragment()
-        }
     }
+
+    private fun showPopup() {
+        val builder = AlertDialog.Builder(requireContext())
+
+        builder.setTitle("Pilih Gambar")
+        builder.setMessage("Melalui gallery atau camera")
+
+        // Set up the buttons
+        builder.setPositiveButton("Gallery") { _, _ ->
+            startGallery()
+        }
+
+        builder.setNegativeButton("Camera") { _, _ ->
+            startCameraX()
+        }
+
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
+    }
+
 }

@@ -37,7 +37,7 @@
         android:layout_marginStart="16dp"
         android:fontFamily="@font/nexa"
         android:text="@string/yuk_login_dulu"
-        android:textColor="@color/color_1"
+        android:textColor="@color/green"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"

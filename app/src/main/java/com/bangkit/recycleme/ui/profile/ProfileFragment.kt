@@ -1,5 +1,6 @@
 package com.bangkit.recycleme.ui.profile
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -12,6 +13,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import com.bangkit.recycleme.R
 import com.bangkit.recycleme.ScanActivity
+import com.bangkit.recycleme.SettingsActivity
 import com.bangkit.recycleme.ui.welcome.AuthViewModel
 import com.bangkit.recycleme.ui.welcome.MainActivity
 import com.bangkit.recycleme.databinding.FragmentProfileBinding
@@ -54,6 +56,7 @@ class ProfileFragment : Fragment() {
 
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -93,6 +96,11 @@ class ProfileFragment : Fragment() {
 
         binding.buttonRecycling.setOnClickListener {
             val intent = Intent(requireContext(), RecyclingResult::class.java)
+            startActivity(intent)
+        }
+
+        binding.buttonSetting.setOnClickListener{
+            val intent = Intent(requireContext(), SettingsActivity::class.java)
             startActivity(intent)
         }
     }

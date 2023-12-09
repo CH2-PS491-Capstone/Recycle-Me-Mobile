@@ -44,7 +44,7 @@ private fun getImageUriForPreQ(context: Context): Uri {
     if (imageFile.parentFile?.exists() == false) imageFile.parentFile?.mkdir()
     return FileProvider.getUriForFile(
         context,
-        "com.will.app.fileprovider",
+        "com.bangkit.recycleme.fileprovider",
         imageFile
     )
 }

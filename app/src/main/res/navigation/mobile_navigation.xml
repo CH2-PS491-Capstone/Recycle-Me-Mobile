@@ -17,9 +17,9 @@
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_recycling" />
 
-    <fragment
+    <activity
         android:id="@+id/navigation_notifications"
-        android:name="com.bangkit.recycleme.ui.scan.ScanFragment"
+        android:name="com.bangkit.recycleme.ScanActivity"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_scan" />
 

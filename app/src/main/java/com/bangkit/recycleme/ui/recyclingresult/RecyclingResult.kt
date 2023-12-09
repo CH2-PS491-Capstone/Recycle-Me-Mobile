@@ -3,11 +3,14 @@ package com.bangkit.recycleme.ui.recyclingresult
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bangkit.recycleme.BridgeActivity
 import com.bangkit.recycleme.R
 import com.bangkit.recycleme.adapter.RecyclingAdapter
 import com.bangkit.recycleme.databinding.ActivityRecyclingResultBinding
@@ -15,6 +18,7 @@ import com.bangkit.recycleme.detail.DetailRecyclingActivity
 import com.bangkit.recycleme.di.UserPreference
 import com.bangkit.recycleme.di.dataStore
 import com.bangkit.recycleme.factory.ViewModelFactory
+import com.bangkit.recycleme.ui.dashboard.DashboardActivity
 import com.bangkit.recycleme.ui.recycling.RecyclingFragment
 import com.bangkit.recycleme.ui.recycling.RecyclingViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -51,11 +55,11 @@ class RecyclingResult : AppCompatActivity() {
             setDisplayShowHomeEnabled(true)
         }
 
-//        val fabAddRecycling = findViewById<FloatingActionButton>(R.id.fabAddRecycling)
-//        fabAddRecycling.setOnClickListener {
-//            val intent = Intent(this, RecyclingFragmentActivity::class.java)
-//            startActivity(intent)
-//        }
+        val fabAddRecycling = findViewById<FloatingActionButton>(R.id.fabAddRecycling)
+        fabAddRecycling.setOnClickListener {
+            val intent = Intent(this, BridgeActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -81,7 +85,10 @@ class RecyclingResult : AppCompatActivity() {
 
     private fun observeViewModel() {
         viewModel.storyList.observe(this, Observer { stories ->
-            stories?.let {
+            if (stories.isNullOrEmpty()) {
+                showEmptyView()
+            } else {
+                hideEmptyView()
                 recyclingAdapter.setStories(stories)
             }
         })
@@ -91,5 +98,15 @@ class RecyclingResult : AppCompatActivity() {
                 error(errorMessage)
             }
         })
+    }
+
+    private fun showEmptyView() {
+        findViewById<RecyclerView>(R.id.rv_recycling).visibility = View.GONE
+        findViewById<TextView>(R.id.empty_text_view).visibility = View.VISIBLE
+    }
+
+    private fun hideEmptyView() {
+        findViewById<RecyclerView>(R.id.rv_recycling).visibility = View.VISIBLE
+        findViewById<TextView>(R.id.empty_text_view).visibility = View.GONE
     }
 }

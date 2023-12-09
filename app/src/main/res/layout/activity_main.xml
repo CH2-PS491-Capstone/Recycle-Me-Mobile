@@ -12,7 +12,8 @@
         android:layout_height="400dp"
         android:scaleType="centerCrop"
         android:src="@drawable/image_welcome"
-        android:contentDescription="@string/logo"/>
+        android:contentDescription="@string/logo"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/tv_welcome_title"
@@ -25,7 +26,7 @@
         android:text="@string/welcome"
         android:textSize="23sp"
         android:textStyle="bold"
-        android:textColor="@color/color_1"
+        android:textColor="@color/green"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

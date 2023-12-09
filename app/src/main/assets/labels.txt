@@ -1,8 +1,9 @@
-elektronik
-kaca
-kain
-kardus
-kertas
-logam
-organik 
-plastik
+Elektronik (B3)
+Kaca (Anorganik)
+Kain (Anorganik)
+Kardus (Anorganik)
+Kertas (Anorganik)
+Logam (Anorganik)
+Organik
+Plastik (Anorganik)
+Undetected

@@ -120,4 +120,5 @@
     <string name="scanTrashDesc">Scan sampah supaya kamu bisa mengetahui kategorinya dan bagaimana cara mendaur ulang jenis sampah tersebut.</string>
     <string name="levelUp">Level Up!</string>
     <string name="levelUpDesc">Kamu bisa atur kegiatan daur ulang yang sudah kamu lakukan. Semakin banyak kamu melakukan daur ulang, semakin terjaga juga kebersihan di lingkungan tempat tinggal kamu.</string>
+    <string name="dark_mode">Dark Mode</string>
 </resources>

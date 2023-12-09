@@ -1,5 +1,6 @@
 package com.bangkit.recycleme.ui.dashboard
 
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +11,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.bangkit.recycleme.R
 import com.bangkit.recycleme.databinding.ActivityDashboardBinding
+import com.bangkit.recycleme.ui.recycling.RecyclingFragment
 import java.io.IOException
 import java.io.InputStream
 
@@ -22,6 +24,8 @@ class DashboardActivity : AppCompatActivity() {
 
         binding = ActivityDashboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         val toolbar: Toolbar = binding.toolbar
         setSupportActionBar(toolbar)
@@ -43,19 +47,5 @@ class DashboardActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-    }
-
-    fun readTextFile(fileName: String): String {
-        try {
-            val inputStream: InputStream = assets.open(fileName)
-            val size: Int = inputStream.available()
-            val buffer = ByteArray(size)
-            inputStream.read(buffer)
-            inputStream.close()
-            return String(buffer)
-        } catch (e: IOException) {
-            e.printStackTrace()
-            return ""
-        }
     }
 }

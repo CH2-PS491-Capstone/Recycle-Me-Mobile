@@ -1,5 +1,6 @@
 package com.bangkit.recycleme.api
 
+import com.bangkit.recycleme.models.DeleteResponse
 import com.bangkit.recycleme.models.DetailResponse
 import com.bangkit.recycleme.models.LoginResponse
 import com.bangkit.recycleme.models.RecyclingAddResponse
@@ -11,6 +12,7 @@ import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.Body
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.Multipart
 import retrofit2.http.POST
@@ -56,4 +58,9 @@ interface ApiService {
 
     @GET("user/total")
     fun getTotal(): Call<TotalResponse>
+
+    @DELETE("recycling/delete/{id}")
+    fun deleteRecycling(
+        @Path("id") id: String
+    ): Call<DeleteResponse>
 }

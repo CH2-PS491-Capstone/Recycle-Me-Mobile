@@ -1,275 +1,439 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.profile.ProfileFragment">
+    android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/tv_pict_welcome"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="320dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/background_fragment_profile"
-        android:contentDescription="@string/logo"/>
-
-    <ImageView
-        android:id="@+id/tv_icon_profile"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:src="@drawable/baseline_account_circle_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/profile_logo" />
-
-    <TextView
-        android:id="@+id/tv_profile_email"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/open_sans"
-        android:text="@string/email"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:gravity="center"
-        app:layout_constraintEnd_toEndOf="@+id/tv_icon_profile"
-        app:layout_constraintStart_toStartOf="@+id/tv_icon_profile"
-        app:layout_constraintTop_toBottomOf="@+id/tv_icon_profile" />
-
-    <LinearLayout
-        android:id="@+id/horizontal_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_profile_email">
-
-        <LinearLayout
-            android:layout_width="120dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="16dp"
-            android:gravity="center_vertical"
-            android:orientation="vertical"
-            android:background="@drawable/shape_profile">
-
-            <TextView
-                android:id="@+id/tvCoinCount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                android:textColor="@color/white" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="@color/white"
-                android:text="Coins"/>
-
-            <ImageView
-                android:id="@+id/history"
-                android:layout_width="50dp"
-                android:layout_gravity="center"
-                android:layout_height="50dp"
-                android:src="@drawable/baseline_monetization_on_24"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="120dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="16dp"
-            android:gravity="center_vertical"
-            android:orientation="vertical"
-            android:background="@drawable/shape_profile"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp">
-
-            <TextView
-                android:id="@+id/tvRecyclingCount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                android:textColor="@color/white" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="@color/white"
-                android:text="Daur Ulang"/>
-
-            <ImageView
-                android:id="@+id/coinsCount"
-                android:layout_width="50dp"
-                android:layout_gravity="center"
-                android:layout_height="50dp"
-                android:src="@drawable/baseline_recycling_24"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="120dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="16dp"
-            android:gravity="center_vertical"
-            android:orientation="vertical"
-            android:background="@drawable/shape_profile">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                android:textColor="@color/white"
-                android:text="5x"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="@color/white"
-                android:text="Withdraw"/>
-
-            <ImageView
-                android:id="@+id/recycleCount"
-                android:layout_width="50dp"
-                android:layout_gravity="center"
-                android:layout_height="50dp"
-                android:src="@drawable/baseline_volunteer_activism_24"/>
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/buttonRecycling"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/horizontal_view"
-        android:clickable="true"
-        android:focusable="true"
-        android:foreground="?android:attr/selectableItemBackground"
-        android:background="@drawable/background_hover"
-        tools:ignore="MissingConstraints">
+        tools:context=".ui.profile.ProfileFragment">
 
         <ImageView
-            android:id="@+id/iconHistory"
-            android:layout_width="30dp"
-            android:layout_marginTop="10dp"
-            android:layout_height="30dp"
-            android:src="@drawable/baseline_recycling_black_24"/>
+            android:id="@+id/tv_pict_welcome"
+            android:layout_width="match_parent"
+            android:layout_height="320dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/background_fragment_profile"
+            android:contentDescription="@string/logo"
+            tools:ignore="MissingConstraints" />
 
-        <LinearLayout
+        <ImageView
+            android:id="@+id/tv_icon_profile"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/baseline_account_circle_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/profile_logo" />
+
+        <TextView
+            android:id="@+id/tv_profile_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginLeft="20dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:text="Recycling" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:text="Lihat hasil daur ulang kamu" />
-
-        </LinearLayout>
-
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_marginLeft="110dp"
-            android:layout_marginTop="10dp"
-            android:layout_height="30dp"
-            android:src="@drawable/baseline_navigate_next_24"/>
-
-    </LinearLayout>
-
-    <View
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#7E7E7E"
-        app:layout_constraintTop_toBottomOf="@id/buttonRecycling"/>
-
-    <LinearLayout
-        android:id="@+id/buttonLogout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:clickable="true"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/buttonRecycling"
-        android:foreground="?android:attr/selectableItemBackground"
-        android:background="@drawable/background_hover"
-        tools:ignore="MissingConstraints"
-        android:focusable="true">
-
-        <ImageView
-            android:id="@+id/iconLogout"
-            android:layout_width="30dp"
-            android:layout_marginTop="10dp"
-            android:layout_height="30dp"
-            android:src="@drawable/baseline_logout_24"/>
+            android:fontFamily="@font/open_sans"
+            android:text="@string/email"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="@+id/tv_icon_profile"
+            app:layout_constraintStart_toStartOf="@+id/tv_icon_profile"
+            app:layout_constraintTop_toBottomOf="@+id/tv_icon_profile" />
 
         <LinearLayout
+            android:id="@+id/horizontal_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginLeft="20dp">
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_profile_email">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:text="Logout" />
+            <LinearLayout
+                android:layout_width="120dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="16dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:background="@drawable/shape_profile">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:text="Jangan lupa kembali lagi ya" />
+                <TextView
+                    android:id="@+id/tvCoinCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:text="0"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:text="Coins"/>
+
+                <ImageView
+                    android:id="@+id/history"
+                    android:layout_width="50dp"
+                    android:layout_gravity="center"
+                    android:layout_height="50dp"
+                    android:src="@drawable/baseline_monetization_on_24"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="120dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="16dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:background="@drawable/shape_profile"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+
+                <TextView
+                    android:id="@+id/tvRecyclingCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:text="0x"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:text="Daur Ulang"/>
+
+                <ImageView
+                    android:id="@+id/coinsCount"
+                    android:layout_width="50dp"
+                    android:layout_gravity="center"
+                    android:layout_height="50dp"
+                    android:src="@drawable/baseline_recycling_24"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="120dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="16dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:background="@drawable/shape_profile">
+
+                <TextView
+                    android:id="@+id/tvWithdrawCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:text="0x"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:text="Withdraw"/>
+
+                <ImageView
+                    android:id="@+id/recycleCount"
+                    android:layout_width="50dp"
+                    android:layout_gravity="center"
+                    android:layout_height="50dp"
+                    android:src="@drawable/baseline_volunteer_activism_24"/>
+            </LinearLayout>
 
         </LinearLayout>
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_marginLeft="110dp"
-            android:layout_marginTop="10dp"
-            android:layout_height="30dp"
-            android:src="@drawable/baseline_navigate_next_24"/>
+        <LinearLayout
+            android:id="@+id/buttonRecycling"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/horizontal_view"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:background="@drawable/background_hover"
+            tools:ignore="MissingConstraints">
 
-    </LinearLayout>
+            <ImageView
+                android:id="@+id/iconHistory"
+                android:layout_width="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_height="30dp"
+                android:src="@drawable/baseline_recycling_black_24"/>
 
-    <View
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#7E7E7E"
-        app:layout_constraintTop_toBottomOf="@id/buttonLogout"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="20dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:text="Recycling" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="Lihat hasil daur ulang kamu" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_marginLeft="112dp"
+                android:layout_marginTop="10dp"
+                android:layout_height="30dp"
+                android:src="@drawable/baseline_navigate_next_24"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#7E7E7E"
+            app:layout_constraintTop_toBottomOf="@id/buttonRecycling"/>
+
+        <LinearLayout
+            android:id="@+id/buttonWithdraw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:clickable="true"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/buttonRecycling"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:background="@drawable/background_hover"
+            tools:ignore="MissingConstraints"
+            android:focusable="true">
+
+            <ImageView
+                android:id="@+id/iconWithdraw"
+                android:layout_width="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_height="30dp"
+                android:src="@drawable/baseline_account_balance_wallet_24"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="17dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:text="Withdraw" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="Tukar coin kamu dengan saldo E-Wallet" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="32dp"
+                android:src="@drawable/baseline_navigate_next_24"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#7E7E7E"
+            app:layout_constraintTop_toBottomOf="@id/buttonWithdraw"/>
+
+        <LinearLayout
+            android:id="@+id/buttonSetting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:clickable="true"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/buttonWithdraw"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:background="@drawable/background_hover"
+            tools:ignore="MissingConstraints"
+            android:focusable="true">
+
+            <ImageView
+                android:id="@+id/iconSetting"
+                android:layout_width="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_height="30dp"
+                android:src="@drawable/baseline_settings_24"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="20dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:text="Settings" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="Ubah bahasa dan mode gelap" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="95dp"
+                android:layout_height="30dp"
+                android:src="@drawable/baseline_navigate_next_24"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#7E7E7E"
+            app:layout_constraintTop_toBottomOf="@id/buttonSetting"/>
+
+        <LinearLayout
+            android:id="@+id/buttonLogout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:clickable="true"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/buttonSetting"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:background="@drawable/background_hover"
+            tools:ignore="MissingConstraints"
+            android:focusable="true">
+
+            <ImageView
+                android:id="@+id/iconLogout"
+                android:layout_width="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_height="30dp"
+                android:src="@drawable/baseline_logout_24"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="20dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:text="Logout" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="Jangan lupa kembali lagi ya" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_marginLeft="110dp"
+                android:layout_marginTop="10dp"
+                android:layout_height="30dp"
+                android:src="@drawable/baseline_navigate_next_24"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#7E7E7E"
+            app:layout_constraintTop_toBottomOf="@id/buttonLogout"/>
+
+        <LinearLayout
+            android:id="@+id/ghostButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:clickable="true"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/buttonLogout"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:background="@drawable/background_hover"
+            tools:ignore="MissingConstraints"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="20dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:text="" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
