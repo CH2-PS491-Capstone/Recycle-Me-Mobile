@@ -97,17 +97,21 @@ class RecyclingFragment : Fragment() {
                 val pref = UserPreference.getInstance(requireContext().dataStore)
                 val token = runBlocking { pref.getSession().first().token }
 
-                viewModel.uploadImage(barang, kategori, recycling, description, imageFile, token,
-                    onImageUploadComplete = { message ->
-                        showToast(message)
-                        val intent = Intent(requireContext(), RecyclingResult::class.java)
-                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                        startActivity(intent)
-                    },
-                    onError = { errorMessage ->
-                        _error.value = errorMessage
-                    }
-                )
+                if (barang.isEmpty() || description.isEmpty() || kategori.isEmpty() || recycling.isEmpty()) {
+                    showToast("Form tidak boleh ada yang kosong")
+                } else {
+                    viewModel.uploadImage(barang, kategori, recycling, description, imageFile, token,
+                        onImageUploadComplete = { message ->
+                            showToast(message)
+                            val intent = Intent(requireContext(), RecyclingResult::class.java)
+                            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                            startActivity(intent)
+                        },
+                        onError = { errorMessage ->
+                            _error.value = errorMessage
+                        }
+                    )
+                }
             } ?: showToast("Pilih gambar terlebih dahulu")
         }
     }

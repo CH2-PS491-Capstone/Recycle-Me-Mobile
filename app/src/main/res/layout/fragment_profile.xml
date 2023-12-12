@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -42,6 +42,20 @@
             app:layout_constraintEnd_toEndOf="@+id/tv_icon_profile"
             app:layout_constraintStart_toStartOf="@+id/tv_icon_profile"
             app:layout_constraintTop_toBottomOf="@+id/tv_icon_profile" />
+
+        <TextView
+            android:id="@+id/tv_profile_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/open_sans"
+            android:text="Nama User"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="@+id/tv_icon_profile"
+            app:layout_constraintStart_toStartOf="@+id/tv_icon_profile"
+            app:layout_constraintTop_toBottomOf="@+id/tv_profile_email" />
 
         <LinearLayout
             android:id="@+id/horizontal_view"

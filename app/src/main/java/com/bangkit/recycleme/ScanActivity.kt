@@ -150,8 +150,29 @@ class ScanActivity : AppCompatActivity() {
             val uri = data?.data
             uri?.let {
                 try {
-                    bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, uri)
-                    binding.previewImageView.setImageBitmap(bitmap)
+                    // Load the original bitmap without rotation
+                    val originalBitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, uri)
+
+                    // Get the orientation of the image
+                    val inputStream = contentResolver.openInputStream(uri)
+                    val exif = inputStream?.let { it1 -> ExifInterface(it1) }
+                    val orientation =
+                        exif?.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_UNDEFINED)
+
+                    // Rotate the bitmap based on the orientation
+                    val rotatedBitmap = orientation?.let { it1 ->
+                        rotateBitmap(originalBitmap,
+                            it1
+                        )
+                    }
+
+                    // Set the rotated bitmap to the ImageView
+                    binding.previewImageView.setImageBitmap(rotatedBitmap)
+
+                    // Update the class-level bitmap property with the rotated bitmap
+                    if (rotatedBitmap != null) {
+                        bitmap = rotatedBitmap
+                    }
                 } catch (e: IOException) {
                     e.printStackTrace()
                     showToast("Failed to load image")

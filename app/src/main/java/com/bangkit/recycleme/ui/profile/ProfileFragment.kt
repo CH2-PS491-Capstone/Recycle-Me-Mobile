@@ -14,6 +14,7 @@ import androidx.lifecycle.lifecycleScope
 import com.bangkit.recycleme.R
 import com.bangkit.recycleme.ScanActivity
 import com.bangkit.recycleme.SettingsActivity
+import com.bangkit.recycleme.WithdrawActivity
 import com.bangkit.recycleme.ui.welcome.AuthViewModel
 import com.bangkit.recycleme.ui.welcome.MainActivity
 import com.bangkit.recycleme.databinding.FragmentProfileBinding
@@ -101,6 +102,11 @@ class ProfileFragment : Fragment() {
 
         binding.buttonSetting.setOnClickListener{
             val intent = Intent(requireContext(), SettingsActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.buttonWithdraw.setOnClickListener{
+            val intent = Intent(requireContext(), WithdrawActivity::class.java)
             startActivity(intent)
         }
     }
