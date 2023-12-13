@@ -7,6 +7,7 @@ import com.bangkit.recycleme.models.RecyclingAddResponse
 import com.bangkit.recycleme.models.RecyclingResponse
 import com.bangkit.recycleme.models.RegisterResponse
 import com.bangkit.recycleme.models.TotalResponse
+import com.bangkit.recycleme.models.WithdrawResponse
 import com.bangkit.recycleme.ui.recyclingresult.RecyclingResult
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -16,6 +17,7 @@ import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.Multipart
 import retrofit2.http.POST
+import retrofit2.http.PUT
 import retrofit2.http.Part
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -29,6 +31,10 @@ data class RegisterRequest(
 data class LoginRequest(
     val email: String,
     val password: String,
+)
+
+data class WithdrawRequest(
+    val inputCoins: Int,
 )
 
 interface ApiService {
@@ -56,8 +62,11 @@ interface ApiService {
         @Path("id") id: String,
     ): Call<DetailResponse>
 
-    @GET("user/total")
+    @GET("user/coins")
     fun getTotal(): Call<TotalResponse>
+
+    @PUT("user/coins")
+    fun withdrawCoin(@Body request: WithdrawRequest): Call<WithdrawResponse>
 
     @DELETE("recycling/delete/{id}")
     fun deleteRecycling(

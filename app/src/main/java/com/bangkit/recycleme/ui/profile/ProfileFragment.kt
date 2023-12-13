@@ -9,25 +9,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
-import com.bangkit.recycleme.R
-import com.bangkit.recycleme.ScanActivity
 import com.bangkit.recycleme.SettingsActivity
-import com.bangkit.recycleme.WithdrawActivity
+import com.bangkit.recycleme.withdraw.WithdrawActivity
 import com.bangkit.recycleme.ui.welcome.AuthViewModel
 import com.bangkit.recycleme.ui.welcome.MainActivity
 import com.bangkit.recycleme.databinding.FragmentProfileBinding
-import com.bangkit.recycleme.detail.DetailRecyclingViewModel
 import com.bangkit.recycleme.models.UserModel
 import com.bangkit.recycleme.di.UserPreference
 import com.bangkit.recycleme.factory.ViewModelFactory
 import com.bangkit.recycleme.di.dataStore
-import com.bangkit.recycleme.models.Recycling
-import com.bangkit.recycleme.models.RecyclingResponse
 import com.bangkit.recycleme.ui.recyclingresult.RecyclingResult
-import com.bangkit.recycleme.ui.recyclingresult.RecyclingResultViewModel
-import com.bumptech.glide.Glide
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
@@ -83,6 +75,14 @@ class ProfileFragment : Fragment() {
         viewModelTotal.totalRecycling.observe(viewLifecycleOwner) { totalRecycling ->
             binding.tvRecyclingCount.text = totalRecycling.toString()+"x"
         }
+
+        viewModelTotal.name.observe(viewLifecycleOwner) { name ->
+            binding.tvProfileName.text = name.toString()
+        }
+
+//        viewModelTotal.totalWihdraw.observe(viewLifecycleOwner) { totalWithdraw ->
+//            binding.tvWithdrawCount.text = totalWithdraw.toString()
+//        }
 
         viewModelTotal.error.observe(viewLifecycleOwner) { error ->
             Toast.makeText(requireContext(), "Error: $error", Toast.LENGTH_SHORT).show()

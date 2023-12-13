@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".withdraw.WithdrawSuccess">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:fontFamily="@font/nexa"
+        android:textColor="@color/green"
+        android:textStyle="bold"
+        android:textSize="35dp"
+        app:layout_constraintBottom_toTopOf="@+id/image_withdraw"
+        android:text="SELAMAT"/>
+
+    <ImageView
+        android:id="@+id/image_withdraw"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/withdraw_notif"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvWithdrawSuccess"
+        android:layout_width="match_parent"
+        android:padding="16dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/open_sans"
+        android:gravity="center"
+        android:textColor="@color/green"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/image_withdraw"
+        android:text="Kamu telah berhasil menukarkan 0 Koin menjadi saldo E-Wallet dengan nomor HP sebesar 0 Rupiah."/>
+
+    <Button
+        android:id="@+id/buttonDashboard"
+        android:layout_width="match_parent"
+        android:layout_margin="16dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tvWithdrawSuccess"
+        android:text="Dashboard"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

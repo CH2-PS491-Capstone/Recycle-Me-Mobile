@@ -84,8 +84,7 @@ class RecyclingFragment : Fragment() {
         binding.galleryButton.setOnClickListener {
             showPopup()
              }
-//        binding.cameraButton.setOnClickListener { startCamera() }
-//        binding.cameraButton.setOnClickListener { startCameraX() }
+
         binding.uploadButton.setOnClickListener {
             currentImageUri?.let { uri ->
                 val imageFile = uriToFile(uri, requireContext()).reduceFileImage()

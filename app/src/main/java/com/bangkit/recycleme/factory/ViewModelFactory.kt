@@ -12,6 +12,7 @@ import com.bangkit.recycleme.ui.profile.ProfileViewModel
 import com.bangkit.recycleme.ui.recycling.RecyclingViewModel
 import com.bangkit.recycleme.ui.recyclingresult.RecyclingResultViewModel
 import com.bangkit.recycleme.ui.register.RegisterViewModel
+import com.bangkit.recycleme.withdraw.WithdrawViewModel
 
 class ViewModelFactory(private val repository: UserRepository) : ViewModelProvider.NewInstanceFactory() {
 
@@ -38,6 +39,9 @@ class ViewModelFactory(private val repository: UserRepository) : ViewModelProvid
             }
             modelClass.isAssignableFrom(ProfileViewModel::class.java) -> {
                 ProfileViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(WithdrawViewModel::class.java) -> {
+                WithdrawViewModel(repository) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }
