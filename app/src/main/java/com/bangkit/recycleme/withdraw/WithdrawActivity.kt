@@ -4,17 +4,20 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
+import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
+import com.bangkit.recycleme.R
 import com.bangkit.recycleme.databinding.ActivityWithdrawBinding
 import com.bangkit.recycleme.di.UserPreference
 import com.bangkit.recycleme.di.dataStore
 import com.bangkit.recycleme.factory.ViewModelFactory
-import com.bangkit.recycleme.ui.dashboard.DashboardActivity
 import com.bangkit.recycleme.ui.profile.ProfileViewModel
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
+import java.text.NumberFormat
+import java.util.Locale
 
 class WithdrawActivity : AppCompatActivity() {
     private lateinit var binding: ActivityWithdrawBinding
@@ -34,33 +37,52 @@ class WithdrawActivity : AppCompatActivity() {
 
         val pref = UserPreference.getInstance(this.dataStore)
         val token = runBlocking { pref.getSession().first().token }
+        val totalCoins = viewModelTotal.totalCoins.value ?: 0
+
+        val toolbar = findViewById<com.google.android.material.appbar.MaterialToolbar>(R.id.scan_menu_appbar)
+        setSupportActionBar(toolbar)
+
+        supportActionBar?.apply {
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowHomeEnabled(true)
+        }
 
         viewModelTotal.loadTotalData(token)
 
         viewModelTotal.totalCoins.observe(this) { totalCoins ->
-            binding.tvCoin.text = "$totalCoins Koin"
+            // Memformat totalCoins untuk memisahkan ribuan
+            val formattedTotalCoins = NumberFormat.getNumberInstance(Locale.getDefault()).format(totalCoins)
+
+            // Menetapkan teks ke TextView dengan format "xxx,xxx Koin"
+            binding.tvCoin.text = "$formattedTotalCoins Koin"
         }
 
         viewModelTotal.error.observe(this) { error ->
             Toast.makeText(this, "Error: $error", Toast.LENGTH_SHORT).show()
         }
 
+        if (totalCoins < 10000) {
+            binding.tvRedNotifCoin.text
+            binding.tvRedNotifCoin.visibility = View.VISIBLE
+        } else {
+            binding.tvRedNotifCoin.visibility = View.GONE
+        }
+
         binding.buttonWithdraw.setOnClickListener {
-            val totalCoins = viewModelTotal.totalCoins.value ?: 0
             val inputCoins = binding.inputCoin.text.toString().toIntOrNull() ?: 0
             val inputPhone = binding.inputPhone.text.toString()
-            if (totalCoins < 10) {
-                showToast("Koin tidak mencukupi. Minimum 10 koin diperlukan.")
+            if (inputCoins < 10000) {
+                showToast("Minimum koin tidak mencukupi untuk withdraw. Mohon lihat lagi persyaratannya.")
             } else if (inputCoins > totalCoins){
                 showToast("Withdraw Gagal. Koin yang kamu input melebihi koin yang kamu miliki.")
             }
             else {
                 // Check if the input is valid (not null and greater than 0)
-                if (inputCoins > 0) {
+                if (inputCoins > 10000 && inputPhone.isNotEmpty()) {
                     // Perform the coin withdrawal operation with the inputCoins value
                     viewModelWithdraw.withdrawCoin(token, inputCoins)
                 } else {
-                    showToast("Invalid input. Please enter a valid number of coins.")
+                    showToast("Invalid input. Form wajib di-isi dan gunakan format yang benar.")
                 }
             }
             // Observe changes in the withdraw result and handle accordingly
@@ -88,5 +110,15 @@ class WithdrawActivity : AppCompatActivity() {
 
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                onBackPressed()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }

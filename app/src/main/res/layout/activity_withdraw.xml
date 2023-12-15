@@ -72,12 +72,23 @@
         android:text="Berikut adalah jumlah koin kamu:"
         tools:ignore="MissingConstraints" />
 
+        <TextView
+            android:id="@+id/tvRedNotifCoin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="16dp"
+            android:visibility="gone"
+            android:textColor="#FB0303"
+            android:text="Koin belum cukup untuk withdraw, yuk daur ulang lagi"
+            app:layout_constraintTop_toBottomOf="@+id/tvStatistik"
+            tools:ignore="MissingConstraints" />
+
     <LinearLayout
         android:id="@+id/linearCoin"
         android:layout_width="match_parent"
         android:orientation="horizontal"
         android:layout_margin="16dp"
-        app:layout_constraintTop_toBottomOf="@id/tvStatistik"
+        app:layout_constraintTop_toBottomOf="@id/tvRedNotifCoin"
         android:background="@drawable/border_edit_text"
         android:layout_height="wrap_content">
 
@@ -142,7 +153,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/inputCoin"
             android:layout_width="match_parent"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             android:layout_height="wrap_content"
             android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>

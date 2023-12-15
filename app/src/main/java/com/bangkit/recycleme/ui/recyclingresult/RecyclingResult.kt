@@ -4,10 +4,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.animation.AnimationUtils
+import android.widget.Button
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.viewModels
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bangkit.recycleme.BridgeActivity
@@ -19,8 +22,8 @@ import com.bangkit.recycleme.di.UserPreference
 import com.bangkit.recycleme.di.dataStore
 import com.bangkit.recycleme.factory.ViewModelFactory
 import com.bangkit.recycleme.ui.dashboard.DashboardActivity
-import com.bangkit.recycleme.ui.recycling.RecyclingFragment
-import com.bangkit.recycleme.ui.recycling.RecyclingViewModel
+import com.bangkit.recycleme.withdraw.WithdrawActivity
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
@@ -31,6 +34,9 @@ class RecyclingResult : AppCompatActivity() {
     }
     private lateinit var recyclingAdapter: RecyclingAdapter
     private lateinit var binding: ActivityRecyclingResultBinding
+
+    private lateinit var buttonsContainer: LinearLayout
+    private lateinit var mainButton: ExtendedFloatingActionButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,16 +61,52 @@ class RecyclingResult : AppCompatActivity() {
             setDisplayShowHomeEnabled(true)
         }
 
-        val fabAddRecycling = findViewById<FloatingActionButton>(R.id.fabAddRecycling)
+        val fabAddRecycling = findViewById<ExtendedFloatingActionButton>(R.id.fabAddRecycling)
         fabAddRecycling.setOnClickListener {
             val intent = Intent(this, BridgeActivity::class.java)
             startActivity(intent)
         }
+
+
+        val fabToProfile = findViewById<ExtendedFloatingActionButton>(R.id.fabToProfile)
+        fabToProfile.setOnClickListener{
+            val intent = Intent(this, DashboardActivity::class.java)
+            startActivity(intent)
+        }
+
+        buttonsContainer = findViewById(R.id.buttonsContainer)
+        mainButton = findViewById(R.id.mainButton)
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
+    }
+
+    fun showButtons(view: View) {
+        val slideLeft = AnimationUtils.loadAnimation(this, R.anim.slide_left)
+        val slideRight = AnimationUtils.loadAnimation(this, R.anim.slide_right)
+
+        if (buttonsContainer.visibility == View.VISIBLE) {
+            buttonsContainer.startAnimation(slideRight)
+            buttonsContainer.visibility = View.GONE
+            mainButton.setCompoundDrawablesWithIntrinsicBounds(
+                null,
+                null,
+                ContextCompat.getDrawable(this, R.drawable.baseline_align_horizontal_right_24),
+                null
+            )
+        } else {
+            buttonsContainer.startAnimation(slideLeft)
+            buttonsContainer.visibility = View.VISIBLE
+            mainButton.setCompoundDrawablesWithIntrinsicBounds(
+                null,
+                null,
+                ContextCompat.getDrawable(this, R.drawable.baseline_align_horizontal_left_24),
+                null
+            )
+        }
     }
 
     private fun initRecyclerView() {

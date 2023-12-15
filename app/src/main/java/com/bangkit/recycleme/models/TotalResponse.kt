@@ -10,5 +10,8 @@ data class TotalResponse(
 	val listRecycling: Int? = null,
 
 	@field:SerializedName("coins")
-	val coins: Int? = null
+	val coins: Int? = null,
+
+	@field:SerializedName("totalWithdraw")
+	val totalWithdraw: Int? = null
 )

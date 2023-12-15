@@ -7,9 +7,12 @@ import com.bangkit.recycleme.R
 import com.bangkit.recycleme.databinding.ActivityWithdrawBinding
 import com.bangkit.recycleme.databinding.ActivityWithdrawSuccessBinding
 import com.bangkit.recycleme.ui.dashboard.DashboardActivity
+import java.text.NumberFormat
+import java.util.Locale
 
 class WithdrawSuccess : AppCompatActivity() {
     private lateinit var binding: ActivityWithdrawSuccessBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityWithdrawSuccessBinding.inflate(layoutInflater)
@@ -18,11 +21,28 @@ class WithdrawSuccess : AppCompatActivity() {
         val inputPhone = intent.getStringExtra("phone")
         val inputCoins = intent.getStringExtra("coins")
 
-        binding.tvWithdrawSuccess.text = "Kamu telah berhasil menukarkan ${inputCoins} Koin menjadi saldo E-Wallet dengan nomor HP ${inputPhone} sebesar ${inputCoins} Rupiah."
+        binding.tvWithdrawSuccess.text =
+            "Kamu telah berhasil menukarkan koin menjadi saldo E-Wallet dengan detail sebagai berikut:"
 
-        binding.buttonDashboard.setOnClickListener{
+        // Memformat inputCoins untuk memisahkan ribuan
+        val formattedCoins = formatCurrency(inputCoins)
+        binding.tvCoin.text = "Rp. $formattedCoins"
+
+        binding.tvDescCoin.text = "Sudah masuk ke $inputPhone"
+
+        binding.buttonDashboard.setOnClickListener {
             val intent = Intent(this, DashboardActivity::class.java)
             startActivity(intent)
+        }
+    }
+
+    private fun formatCurrency(amount: String?): String {
+        val numberFormat = NumberFormat.getNumberInstance(Locale.getDefault())
+        return try {
+            val parsedAmount = amount?.toDouble() ?: 0.0
+            numberFormat.format(parsedAmount)
+        } catch (e: NumberFormatException) {
+            "0"
         }
     }
 }

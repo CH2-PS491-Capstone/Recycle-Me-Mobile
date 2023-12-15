@@ -121,4 +121,5 @@
     <string name="levelUp">Level Up!</string>
     <string name="levelUpDesc">Kamu bisa atur kegiatan daur ulang yang sudah kamu lakukan. Semakin banyak kamu melakukan daur ulang, semakin terjaga juga kebersihan di lingkungan tempat tinggal kamu.</string>
     <string name="dark_mode">Dark Mode</string>
+    <string name="title_activity_user_dashboard">UserDashboardActivity</string>
 </resources>

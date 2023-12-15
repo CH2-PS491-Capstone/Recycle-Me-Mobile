@@ -25,6 +25,8 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
+import java.text.NumberFormat
+import java.util.Locale
 
 class ProfileFragment : Fragment() {
     private val viewModel by viewModels<AuthViewModel> {
@@ -69,7 +71,8 @@ class ProfileFragment : Fragment() {
         viewModelTotal.loadTotalData(token)
 
         viewModelTotal.totalCoins.observe(viewLifecycleOwner) { totalCoins ->
-            binding.tvCoinCount.text = totalCoins.toString()
+            val formattedTotalCoins = NumberFormat.getNumberInstance(Locale.getDefault()).format(totalCoins)
+            binding.tvCoinCount.text = formattedTotalCoins
         }
 
         viewModelTotal.totalRecycling.observe(viewLifecycleOwner) { totalRecycling ->
@@ -80,9 +83,9 @@ class ProfileFragment : Fragment() {
             binding.tvProfileName.text = name.toString()
         }
 
-//        viewModelTotal.totalWihdraw.observe(viewLifecycleOwner) { totalWithdraw ->
-//            binding.tvWithdrawCount.text = totalWithdraw.toString()
-//        }
+        viewModelTotal.totalWithdraw.observe(viewLifecycleOwner) { totalWithdraw ->
+            binding.tvWithdrawCount.text = totalWithdraw.toString()+"x"
+        }
 
         viewModelTotal.error.observe(viewLifecycleOwner) { error ->
             Toast.makeText(requireContext(), "Error: $error", Toast.LENGTH_SHORT).show()

@@ -39,7 +39,7 @@ class ProfileViewModel(private val userRepository: UserRepository) : ViewModel()
                     val totalResponse = response.body()
                     totalResponse?.let {
                         _name.postValue(it.name ?: "N/A")
-//                        _totalWithdraw.postValue(it.withdraw ?: 0)
+                        _totalWithdraw.postValue(it.totalWithdraw ?: 0)
                         _totalCoins.postValue(it.coins ?: 0)
                         _totalRecycling.postValue(it.listRecycling ?: 0)
                     } ?: run {
