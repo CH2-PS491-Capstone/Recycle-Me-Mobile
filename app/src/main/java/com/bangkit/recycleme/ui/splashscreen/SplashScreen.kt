@@ -10,7 +10,7 @@ import com.bangkit.recycleme.databinding.ActivitySplashScreenBinding
 import com.bangkit.recycleme.factory.ViewModelFactory
 import com.bangkit.recycleme.ui.dashboard.DashboardActivity
 import com.bangkit.recycleme.ui.introslider.HomeSlider
-import com.bangkit.recycleme.ui.welcome.AuthViewModel
+import com.bangkit.recycleme.welcome.AuthViewModel
 
 import android.net.Uri
 import android.os.Bundle

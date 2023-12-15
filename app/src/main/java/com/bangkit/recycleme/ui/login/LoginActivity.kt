@@ -41,7 +41,7 @@ class LoginActivity : AppCompatActivity() {
                 when (result) {
                     is Result.Success -> {
                         val token = result.data
-                        Toast.makeText(this, "Login success", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Login Berhasil", Toast.LENGTH_SHORT).show()
 
                         val userPreference = UserPreference.getInstance(this.dataStore)
 

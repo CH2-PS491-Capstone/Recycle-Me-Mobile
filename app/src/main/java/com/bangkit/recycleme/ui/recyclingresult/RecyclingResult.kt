@@ -94,7 +94,7 @@ class RecyclingResult : AppCompatActivity() {
             mainButton.setCompoundDrawablesWithIntrinsicBounds(
                 null,
                 null,
-                ContextCompat.getDrawable(this, R.drawable.baseline_align_horizontal_right_24),
+                ContextCompat.getDrawable(this, R.drawable.baseline_arrow_back_ios_new_24),
                 null
             )
         } else {
@@ -103,7 +103,7 @@ class RecyclingResult : AppCompatActivity() {
             mainButton.setCompoundDrawablesWithIntrinsicBounds(
                 null,
                 null,
-                ContextCompat.getDrawable(this, R.drawable.baseline_align_horizontal_left_24),
+                ContextCompat.getDrawable(this, R.drawable.baseline_arrow_forward_ios_24),
                 null
             )
         }

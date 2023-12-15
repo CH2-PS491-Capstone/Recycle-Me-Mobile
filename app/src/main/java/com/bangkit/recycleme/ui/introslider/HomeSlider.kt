@@ -12,7 +12,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.bangkit.recycleme.R
 import com.bangkit.recycleme.adapter.IntroSliderAdapter
 import com.bangkit.recycleme.databinding.ActivityHomeSliderBinding
-import com.bangkit.recycleme.ui.welcome.MainActivity
+import com.bangkit.recycleme.welcome.MainActivity
 
 class HomeSlider : AppCompatActivity() {
 

@@ -1,12 +1,9 @@
-package com.bangkit.recycleme.ui.welcome
+package com.bangkit.recycleme.welcome
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.activity.viewModels
 import com.bangkit.recycleme.databinding.ActivityMainBinding
-import com.bangkit.recycleme.factory.ViewModelFactory
-import com.bangkit.recycleme.ui.dashboard.DashboardActivity
 import com.bangkit.recycleme.ui.login.LoginActivity
 import com.bangkit.recycleme.ui.register.RegisterActivity
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.welcome.MainActivity">
+    tools:context=".welcome.MainActivity">
 
     <ImageView
         android:id="@+id/tv_pict_welcome"

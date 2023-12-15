@@ -37,7 +37,6 @@ class WithdrawActivity : AppCompatActivity() {
 
         val pref = UserPreference.getInstance(this.dataStore)
         val token = runBlocking { pref.getSession().first().token }
-        val totalCoins = viewModelTotal.totalCoins.value ?: 0
 
         val toolbar = findViewById<com.google.android.material.appbar.MaterialToolbar>(R.id.scan_menu_appbar)
         setSupportActionBar(toolbar)
@@ -49,26 +48,27 @@ class WithdrawActivity : AppCompatActivity() {
 
         viewModelTotal.loadTotalData(token)
 
-        viewModelTotal.totalCoins.observe(this) { totalCoins ->
+        viewModelTotal.totalCoins.observe(this) { coins ->
             // Memformat totalCoins untuk memisahkan ribuan
-            val formattedTotalCoins = NumberFormat.getNumberInstance(Locale.getDefault()).format(totalCoins)
+            val formattedTotalCoins = NumberFormat.getNumberInstance(Locale.getDefault()).format(coins)
 
             // Menetapkan teks ke TextView dengan format "xxx,xxx Koin"
             binding.tvCoin.text = "$formattedTotalCoins Koin"
+
+            if (coins < 10000) {
+                binding.tvRedNotifCoin.visibility = View.VISIBLE
+            } else {
+                binding.tvRedNotifCoin.visibility = View.GONE
+            }
         }
 
         viewModelTotal.error.observe(this) { error ->
             Toast.makeText(this, "Error: $error", Toast.LENGTH_SHORT).show()
         }
 
-        if (totalCoins < 10000) {
-            binding.tvRedNotifCoin.text
-            binding.tvRedNotifCoin.visibility = View.VISIBLE
-        } else {
-            binding.tvRedNotifCoin.visibility = View.GONE
-        }
 
         binding.buttonWithdraw.setOnClickListener {
+            val totalCoins = viewModelTotal.totalCoins.value ?: 0
             val inputCoins = binding.inputCoin.text.toString().toIntOrNull() ?: 0
             val inputPhone = binding.inputPhone.text.toString()
             if (inputCoins < 10000) {
@@ -77,12 +77,10 @@ class WithdrawActivity : AppCompatActivity() {
                 showToast("Withdraw Gagal. Koin yang kamu input melebihi koin yang kamu miliki.")
             }
             else {
-                // Check if the input is valid (not null and greater than 0)
-                if (inputCoins > 10000 && inputPhone.isNotEmpty()) {
-                    // Perform the coin withdrawal operation with the inputCoins value
+                if (inputCoins >= 10000 && inputPhone.isNotEmpty()) {
                     viewModelWithdraw.withdrawCoin(token, inputCoins)
                 } else {
-                    showToast("Invalid input. Form wajib di-isi dan gunakan format yang benar.")
+                    showToast("Form No HP wajib diisi")
                 }
             }
             // Observe changes in the withdraw result and handle accordingly

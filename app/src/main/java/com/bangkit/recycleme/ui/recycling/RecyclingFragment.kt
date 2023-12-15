@@ -16,9 +16,7 @@ import android.app.AlertDialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
-import android.provider.ContactsContract.Profile
 import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.core.net.toUri
 import androidx.fragment.app.viewModels
@@ -29,9 +27,7 @@ import com.bangkit.recycleme.di.dataStore
 import com.bangkit.recycleme.factory.ViewModelFactory
 import com.bangkit.recycleme.ui.camera.CameraActivity
 import com.bangkit.recycleme.ui.camera.CameraActivity.Companion.CAMERAX_RESULT
-import com.bangkit.recycleme.ui.profile.ProfileFragment
 import com.bangkit.recycleme.ui.recyclingresult.RecyclingResult
-import com.bangkit.recycleme.ui.welcome.MainActivity
 import com.bangkit.recycleme.utils.getImageUri
 import com.bangkit.recycleme.utils.reduceFileImage
 import com.bangkit.recycleme.utils.uriToFile
@@ -100,8 +96,8 @@ class RecyclingFragment : Fragment() {
                     showToast("Form tidak boleh ada yang kosong")
                 } else {
                     viewModel.uploadImage(barang, kategori, recycling, description, imageFile, token,
-                        onImageUploadComplete = { message ->
-                            showToast(message)
+                        onImageUploadComplete = {
+                            showToast("Berhasil menambahkan daur ulang")
                             val intent = Intent(requireContext(), RecyclingResult::class.java)
                             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                             startActivity(intent)
@@ -176,14 +172,14 @@ class RecyclingFragment : Fragment() {
         val builder = AlertDialog.Builder(requireContext())
 
         builder.setTitle("Pilih Gambar")
-        builder.setMessage("Melalui gallery atau camera")
+        builder.setMessage("Melalui galeri atau kamera")
 
         // Set up the buttons
-        builder.setPositiveButton("Gallery") { _, _ ->
+        builder.setPositiveButton("Galeri") { _, _ ->
             startGallery()
         }
 
-        builder.setNegativeButton("Camera") { _, _ ->
+        builder.setNegativeButton("Kamera") { _, _ ->
             startCameraX()
         }
 

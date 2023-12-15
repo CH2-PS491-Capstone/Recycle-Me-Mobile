@@ -12,8 +12,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.bangkit.recycleme.SettingsActivity
 import com.bangkit.recycleme.withdraw.WithdrawActivity
-import com.bangkit.recycleme.ui.welcome.AuthViewModel
-import com.bangkit.recycleme.ui.welcome.MainActivity
+import com.bangkit.recycleme.welcome.AuthViewModel
+import com.bangkit.recycleme.welcome.MainActivity
 import com.bangkit.recycleme.databinding.FragmentProfileBinding
 import com.bangkit.recycleme.models.UserModel
 import com.bangkit.recycleme.di.UserPreference

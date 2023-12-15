@@ -1,4 +1,4 @@
-package com.bangkit.recycleme.ui.welcome
+package com.bangkit.recycleme.welcome
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
