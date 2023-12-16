@@ -1,0 +1,27 @@
+<!-- res/menu/filter_menu.xml -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_filter_1"
+        android:title="Elektronik (B3)"/>
+    <item
+        android:id="@+id/menu_filter_2"
+        android:title="Kaca (Anorganik)"/>
+    <item
+        android:id="@+id/menu_filter_3"
+        android:title="Kain (Anorganik)"/>
+    <item
+        android:id="@+id/menu_filter_4"
+        android:title="Kardus (Anorganik)"/>
+    <item
+        android:id="@+id/menu_filter_5"
+        android:title="Logam (Anorganik)"/>
+    <item
+        android:id="@+id/menu_filter_6"
+        android:title="Organik"/>
+    <item
+        android:id="@+id/menu_filter_7"
+        android:title="Plastik (Anorganik)"/>
+    <item
+        android:id="@+id/menu_filter_8"
+        android:title="Kertas (Anorganik)"/>
+</menu>

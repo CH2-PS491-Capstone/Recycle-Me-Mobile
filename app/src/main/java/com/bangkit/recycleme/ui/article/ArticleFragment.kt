@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.PopupMenu
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -12,6 +13,7 @@ import com.bangkit.recycleme.ui.detail.DetailActivity
 import com.bangkit.recycleme.adapter.ListPhoneAdapter
 import com.bangkit.recycleme.models.Phone
 import com.bangkit.recycleme.R
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class ArticleFragment : Fragment() {
     private lateinit var rvPhone: RecyclerView
@@ -31,6 +33,9 @@ class ArticleFragment : Fragment() {
         showRecyclerList()
 
         setHasOptionsMenu(true)
+
+        val fabFilter: FloatingActionButton = view.findViewById(R.id.buttonFilter)
+        fabFilter.setOnClickListener { showFilterMenu(fabFilter) }
 
         return view
     }
@@ -70,5 +75,28 @@ class ArticleFragment : Fragment() {
                 startActivity(intentToDetail)
             }
         })
+    }
+
+    private fun showFilterMenu(anchor: View) {
+        val popup = PopupMenu(requireContext(), anchor)
+        popup.menuInflater.inflate(R.menu.filter_menu, popup.menu)
+
+        popup.setOnMenuItemClickListener { item ->
+            // Handle item click here
+            when (item.itemId) {
+                R.id.menu_filter_1 -> filterListByCategory("Category 1")
+                R.id.menu_filter_2 -> filterListByCategory("Category 2")
+                // Add more filters as needed
+            }
+            true
+        }
+
+        popup.show()
+    }
+
+    private fun filterListByCategory(category: String) {
+        // Implement your filtering logic here
+        // You may need to modify the list and update the RecyclerView adapter
+        // For example, you can create a new filtered list and set it to the adapter
     }
 }
