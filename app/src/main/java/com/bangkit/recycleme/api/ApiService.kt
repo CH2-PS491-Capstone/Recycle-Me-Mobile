@@ -1,6 +1,8 @@
 package com.bangkit.recycleme.api
 
+import com.bangkit.recycleme.models.ArticleResponse
 import com.bangkit.recycleme.models.DeleteResponse
+import com.bangkit.recycleme.models.DetailArticleResponse
 import com.bangkit.recycleme.models.DetailResponse
 import com.bangkit.recycleme.models.LoginResponse
 import com.bangkit.recycleme.models.RecyclingAddResponse
@@ -72,4 +74,15 @@ interface ApiService {
     fun deleteRecycling(
         @Path("id") id: String
     ): Call<DeleteResponse>
+
+    @GET("articles")
+    suspend fun getArticlePaging(
+        @Query("page") page: Int = 1,
+        @Query("size") size: Int = 20
+    ): ArticleResponse
+
+    @GET("articles/{id}")
+    fun getDetailArticle(
+        @Path("id") id: String,
+    ): Call<DetailArticleResponse>
 }

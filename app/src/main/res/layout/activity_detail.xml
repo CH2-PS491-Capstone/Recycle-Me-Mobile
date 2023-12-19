@@ -5,51 +5,123 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     tools:context=".ui.detail.DetailActivity">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/img_item_photo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="16dp"
+            android:id="@+id/tv_picture_story"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:contentDescription="Gambar Artikel"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:src="@tools:sample/avatars" />
 
-        <TextView
-            android:id="@+id/tv_detail_name"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="16dp"
-            android:text="@string/phone_name"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            app:layout_constraintTop_toBottomOf="@id/tv_picture_story">
+
+
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/tv_item_price"
-            android:layout_width="wrap_content"
+            android:id="@+id/tvTitleArticle"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="16dp"
-            android:text="@string/price"
-            android:textSize="16sp"
-            android:textStyle="bold"/>
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:fontFamily="@font/open_sans"
+            android:text="Judul"
+            android:textSize="25sp"
+            android:justificationMode="inter_word"
+            android:textStyle="bold"
+            android:paddingTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_picture_story" />
 
         <TextView
-            android:id="@+id/tv_detail_description"
+            android:id="@+id/tvKategori"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:paddingLeft="16dp"
             android:layout_marginTop="16dp"
-            android:text="@string/description"
-            android:textSize="16sp" />
+            android:fontFamily="@font/open_sans"
+            android:text="kategori"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleArticle" />
+
+        <View
+            android:layout_margin="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#7E7E7E"
+            app:layout_constraintTop_toBottomOf="@id/tvKategori"/>
+
+        <TextView
+            android:id="@+id/tvAlat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/open_sans"
+            android:text="Alat dan Bahan:"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvKategori" />
+
+        <TextView
+            android:id="@+id/tvAlatDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:fontFamily="@font/open_sans"
+            android:text="Desc"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvAlat"/>
+
+        <View
+            android:layout_margin="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#7E7E7E"
+            app:layout_constraintTop_toBottomOf="@id/tvAlatDesc"/>
+
+        <TextView
+            android:id="@+id/tvLangkah"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/open_sans"
+            android:text="Langkah Daur Ulang:"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvAlatDesc" />
+
+        <TextView
+            android:id="@+id/tvLangkahDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:fontFamily="@font/open_sans"
+            android:text="Desc Langkah"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvLangkah"/>
 
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

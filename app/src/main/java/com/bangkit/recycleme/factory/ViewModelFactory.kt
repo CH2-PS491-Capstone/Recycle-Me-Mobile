@@ -6,6 +6,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.bangkit.recycleme.detail.DetailRecyclingViewModel
 import com.bangkit.recycleme.di.Injection
 import com.bangkit.recycleme.di.UserRepository
+import com.bangkit.recycleme.ui.article.ArticleViewModel
+import com.bangkit.recycleme.ui.detail.DetailViewModel
 import com.bangkit.recycleme.welcome.AuthViewModel
 import com.bangkit.recycleme.ui.login.LoginViewModel
 import com.bangkit.recycleme.ui.profile.ProfileViewModel
@@ -42,6 +44,12 @@ class ViewModelFactory(private val repository: UserRepository) : ViewModelProvid
             }
             modelClass.isAssignableFrom(WithdrawViewModel::class.java) -> {
                 WithdrawViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(ArticleViewModel::class.java) -> {
+                ArticleViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(DetailViewModel::class.java) -> {
+                DetailViewModel(repository) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }

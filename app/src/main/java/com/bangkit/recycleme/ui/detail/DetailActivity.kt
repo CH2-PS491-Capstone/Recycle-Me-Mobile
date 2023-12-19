@@ -5,44 +5,59 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.activity.viewModels
+import androidx.lifecycle.Observer
 import com.bangkit.recycleme.models.Phone
 import com.bangkit.recycleme.R
+import com.bangkit.recycleme.databinding.ActivityDetailBinding
+import com.bangkit.recycleme.di.UserPreference
+import com.bangkit.recycleme.di.dataStore
+import com.bangkit.recycleme.factory.ViewModelFactory
+import com.bumptech.glide.Glide
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.runBlocking
 
 class DetailActivity : AppCompatActivity() {
-    private lateinit var tvDetailName: TextView
-    private lateinit var tvDescription: TextView
-    private lateinit var imgPhoto: ImageView
-    private lateinit var tvPrice: TextView
+    private lateinit var imageView: ImageView
+    private lateinit var kategoriView: TextView
+    private lateinit var judulView: TextView
+    private lateinit var alatView: TextView
+    private lateinit var langkahView: TextView
+    private val viewModel by viewModels<DetailViewModel> {
+        ViewModelFactory.getInstance(this)
+    }
+    private lateinit var binding: ActivityDetailBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_detail)
 
-        tvDetailName = findViewById(R.id.tv_detail_name)
-        tvDescription = findViewById(R.id.tv_detail_description)
-        imgPhoto = findViewById(R.id.img_item_photo)
-        tvPrice = findViewById(R.id.tv_item_price)
+        supportActionBar?.title = "Detail Article"
 
-        val receivedData = if (Build.VERSION.SDK_INT >= 33) {
-            @Suppress("DEPRECATION")
-            intent.getParcelableExtra<Phone>("DATA")
-        } else {
-            @Suppress("DEPRECATION")
-            intent.getParcelableExtra<Phone>("DATA")
+        binding = ActivityDetailBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        val storyId = intent.getStringExtra("id")
+        val pref = UserPreference.getInstance(this.dataStore)
+        val token = runBlocking { pref.getSession().first().token }
+        if (storyId != null) {
+            viewModel.loadStoryDetail(token, storyId)
         }
-        if (receivedData != null) {
-            supportActionBar?.title = "Detail"
-            val photo = receivedData.photo
-            val text = receivedData.name
-            val deskripsi = receivedData.detailDescription
-            val price = receivedData.price
 
-            imgPhoto.setImageResource(photo)
-            tvDetailName.text = text
-            tvDescription.text = deskripsi
-            tvPrice.text = "Mulai Dari: $price"
-        }
+        viewModel.storyDetail.observe(this, Observer { story ->
+            imageView = binding.tvPictureStory
+            Glide.with(this@DetailActivity)
+                .load(story?.gambar)
+                .into(imageView)
+
+            kategoriView = binding.tvKategori
+            judulView = binding.tvTitleArticle
+            alatView = binding.tvAlatDesc
+            langkahView = binding.tvLangkahDesc
+
+            kategoriView.text = "Kategori sampah: " + story?.jenis
+            judulView.text = story?.judul
+            alatView.text = story?.alatBahan
+            langkahView.text = story?.langkah
+        })
     }
 }
