@@ -48,22 +48,22 @@ class ArticleFragment : Fragment() {
 
         val recyclerView = binding.rvPhone
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        storyAdapter = ArticleAdapter() { view2 ->
-            val position = recyclerView.getChildAdapterPosition(view2)
+        storyAdapter = ArticleAdapter { view ->
+            val position = recyclerView.getChildAdapterPosition(view)
             val clickedUser = storyAdapter.getArticle(position)
             val intent = Intent(requireContext(), DetailActivity::class.java)
             intent.putExtra("id", clickedUser?.id)
             startActivity(intent)
         }
+        storyViewModel.article.observe(viewLifecycleOwner) {
+            storyAdapter.submitData(lifecycle, it)
+        }
+
         recyclerView.adapter = storyAdapter.withLoadStateFooter(
             footer = LoadingStateAdapter {
                 storyAdapter.retry()
             }
         )
-
-        storyViewModel.article.observe(viewLifecycleOwner) {
-            storyAdapter.submitData(lifecycle, it)
-        }
 
         storyViewModel.error.observe(viewLifecycleOwner, Observer { errorMessage ->
             if (errorMessage.isNotEmpty()) {
