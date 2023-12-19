@@ -151,14 +151,18 @@
 
     </ScrollView>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/fabDeleteRecycling"
-        android:layout_width="wrap_content"
-        android:backgroundTint="#07EA55"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:src="@drawable/baseline_delete_forever_24"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:layout_gravity="bottom|end"/>
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom|end"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:iconTint="@color/white"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/green"
+        app:icon="@drawable/baseline_delete_forever_24"/>
 </RelativeLayout>

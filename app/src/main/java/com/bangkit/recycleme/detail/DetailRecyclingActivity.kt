@@ -82,7 +82,7 @@ class DetailRecyclingActivity : AppCompatActivity() {
         val builder = AlertDialog.Builder(this)
 
         builder.setTitle("Hapus Daur Ulang")
-        builder.setMessage("Apa kamu yakin mau menghapus daur ulang ini? Jika iya, koin kamu akan berkurang.")
+        builder.setMessage("Apa kamu yakin mau menghapus daur ulang ini? Jika iya, total daur ulang kamu akan berkurang.")
 
         builder.setPositiveButton("Ya") { _, _ ->
             val deleteId = intent.getStringExtra("id")

@@ -89,14 +89,14 @@
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/mainButton"
             android:layout_width="50dp"
-            android:backgroundTint="#07EA55"
-            android:textColor="@color/black"
+            android:backgroundTint="@color/green"
             android:onClick="showButtons"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_margin="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:iconTint="@color/white"
             app:icon="@drawable/baseline_arrow_back_ios_new_24"/>
 
         <LinearLayout
@@ -113,18 +113,18 @@
             <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
                 android:id="@+id/fabToProfile"
                 android:layout_width="wrap_content"
-                android:backgroundTint="#07EA55"
-                android:textColor="@color/black"
+                android:backgroundTint="@color/green"
+                android:textColor="@color/white"
                 android:text="Dashboard"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="65dp"
+                android:layout_marginLeft="20dp"
                 android:layout_marginRight="16dp"/>
 
             <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
                 android:id="@+id/fabAddRecycling"
                 android:layout_width="wrap_content"
-                android:backgroundTint="#07EA55"
-                android:textColor="@color/black"
+                android:backgroundTint="@color/green"
+                android:textColor="@color/white"
                 android:layout_height="wrap_content"
                 android:text="+ Daur Ulang"/>
 

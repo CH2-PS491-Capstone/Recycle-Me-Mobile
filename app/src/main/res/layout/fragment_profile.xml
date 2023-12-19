@@ -13,9 +13,9 @@
         <ImageView
             android:id="@+id/tv_pict_welcome"
             android:layout_width="match_parent"
-            android:layout_height="350dp"
+            android:layout_height="320dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/background_fragment_profile"
+            android:src="#FF5722"
             android:contentDescription="@string/logo"
             tools:ignore="MissingConstraints" />
 
@@ -23,6 +23,7 @@
             android:id="@+id/tv_icon_profile"
             android:layout_width="150dp"
             android:layout_height="150dp"
+            android:layout_marginTop="20dp"
             android:src="@drawable/baseline_account_circle_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -35,7 +36,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/open_sans"
             android:text="@string/email"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textStyle="bold"
             android:textSize="20sp"
             android:gravity="center"
@@ -49,7 +50,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/open_sans"
             android:text="Nama User"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textStyle="bold"
             android:textSize="20sp"
             android:gravity="center"
@@ -62,7 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="20dp"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_profile_name">

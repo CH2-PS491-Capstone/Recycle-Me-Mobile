@@ -217,14 +217,14 @@ class ScanActivity : AppCompatActivity() {
         val builder = AlertDialog.Builder(this)
 
         builder.setTitle("Pilih Gambar")
-        builder.setMessage("Melalui gallery atau camera")
+        builder.setMessage("Melalui galeri atau kamera")
 
         // Set up the buttons
-        builder.setPositiveButton("Gallery") { _, _ ->
+        builder.setPositiveButton("Galeri") { _, _ ->
             startGallery()
         }
 
-        builder.setNegativeButton("Camera") { _, _ ->
+        builder.setNegativeButton("Kamera") { _, _ ->
             startCameraX()
         }
 
