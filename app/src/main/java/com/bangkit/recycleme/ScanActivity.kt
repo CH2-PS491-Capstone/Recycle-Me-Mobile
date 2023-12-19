@@ -3,7 +3,6 @@ package com.bangkit.recycleme
 import android.animation.AnimatorInflater
 import android.app.AlertDialog
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Matrix
 import android.net.Uri
@@ -14,13 +13,25 @@ import android.util.Log
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.content.ContextCompat
+import androidx.activity.viewModels
 import androidx.core.net.toUri
 import androidx.exifinterface.media.ExifInterface
+import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.bangkit.recycleme.adapter.ArticleAdapter
 import com.bangkit.recycleme.databinding.ActivityScanBinding
+import com.bangkit.recycleme.di.UserPreference
+import com.bangkit.recycleme.di.dataStore
+import com.bangkit.recycleme.factory.ViewModelFactory
 import com.bangkit.recycleme.ml.WasteclassModel
+import com.bangkit.recycleme.ui.article.ArticleViewModel
 import com.bangkit.recycleme.ui.camera.CameraActivity
-import com.bangkit.recycleme.ui.scan.ScanFragment
+import com.bangkit.recycleme.ui.detail.DetailActivity
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.support.image.ImageProcessor
 import org.tensorflow.lite.support.image.TensorImage
@@ -29,9 +40,14 @@ import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
 import java.io.IOException
 
 class ScanActivity : AppCompatActivity() {
+    private val storyViewModel by viewModels<ArticleViewModel> {
+        ViewModelFactory.getInstance(this)
+    }
     private lateinit var binding: ActivityScanBinding
     private lateinit var bitmap: Bitmap
     private var currentImageUri: Uri? = null
+
+    private lateinit var storyAdapter: ArticleAdapter
 
     private val launcherIntentCameraX = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
@@ -137,6 +153,24 @@ class ScanActivity : AppCompatActivity() {
 
             loadCategoryImage(maxIdx)
 
+            val recyclerView = binding.rvPhone
+            recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+            storyAdapter = ArticleAdapter { view ->
+                val position = recyclerView.getChildAdapterPosition(view)
+                val clickedUser = storyAdapter.getStory(position)
+                val intent = Intent(this, DetailActivity::class.java)
+                intent.putExtra("id", clickedUser.id)
+                startActivity(intent)
+            }
+
+            recyclerView.adapter = storyAdapter
+
+            storyViewModel.storyList.observe(this, Observer { stories ->
+                storyAdapter.setStories(stories)
+            })
+
+            getFilterText(maxIdx, recyclerView)
+
 
             // Releases model resources if no longer used.
             model.close()
@@ -204,6 +238,23 @@ class ScanActivity : AppCompatActivity() {
             6 -> imageView.setImageResource(R.drawable.baseline_restore_from_trash_24_organic)
             else -> imageView.setImageResource(R.drawable.baseline_recycling_24)
         }
+    }
+
+    private fun getFilterText(categoryIndex: Int, recyclerView: RecyclerView) {
+        val category = when (categoryIndex) {
+            0 -> "elektronik"
+            1, 2, 3, 4, 5, 7 -> "anorganik"
+            6 -> "organik"
+            else -> "tidak diketahui"
+        }
+
+        filterListByCategory(category)
+    }
+
+    private fun filterListByCategory(category: String) {
+        val pref = UserPreference.getInstance(this.dataStore)
+        val token = runBlocking { pref.getSession().first().token }
+        storyViewModel.searchFilter(token, "", category)
     }
 
     private fun startGallery() {
