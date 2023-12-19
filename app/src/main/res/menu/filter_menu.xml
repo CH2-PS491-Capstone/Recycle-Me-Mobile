@@ -24,4 +24,8 @@
     <item
         android:id="@+id/menu_filter_8"
         android:title="Kertas (Anorganik)"/>
+
+    <item
+        android:id="@+id/menu_filter_9"
+        android:title="Hapus Filter"/>
 </menu>

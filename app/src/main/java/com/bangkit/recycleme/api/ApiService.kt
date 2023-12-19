@@ -76,10 +76,10 @@ interface ApiService {
     ): Call<DeleteResponse>
 
     @GET("articles")
-    suspend fun getArticlePaging(
-        @Query("page") page: Int = 1,
-        @Query("size") size: Int = 20
-    ): ArticleResponse
+    fun getArticle(
+        @Query("search") search: String = "",
+        @Query("jenis") jenis: String = ""
+    ): Call<ArticleResponse>
 
     @GET("articles/{id}")
     fun getDetailArticle(
