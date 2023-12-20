@@ -1,6 +1,11 @@
 package com.bangkit.recycleme.models
 
+import android.os.Parcelable
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
 data class DetailArticleResponse(
 
@@ -14,29 +19,43 @@ data class DetailArticleResponse(
 	val article: Article? = null
 )
 
+@Entity
+@Parcelize
 data class Article(
 
+	@field:SerializedName("id")
+	@ColumnInfo(name = "id")
+	@PrimaryKey
+	val id: String = "",
+
 	@field:SerializedName("langkah")
-	val langkah: String? = null,
+	@ColumnInfo(name = "langkah")
+	val langkah: String? = "",
 
 	@field:SerializedName("alatBahan")
-	val alatBahan: String? = null,
+	@ColumnInfo(name = "alatBahan")
+	val alatBahan: String? = "",
 
 	@field:SerializedName("jenis")
-	val jenis: String? = null,
+	@ColumnInfo(name = "jenis")
+	val jenis: String? = "",
 
 	@field:SerializedName("sumberArtikel")
-	val sumberArtikel: String? = null,
-
-	@field:SerializedName("id")
-	val id: String? = null,
+	@ColumnInfo(name = "sumberArtikel")
+	val sumberArtikel: String? = "",
 
 	@field:SerializedName("judul")
-	val judul: String? = null,
+	@ColumnInfo(name = "judul")
+	val judul: String? = "",
 
 	@field:SerializedName("gambar")
-	val gambar: String? = null,
+	@ColumnInfo(name = "gambar")
+	val gambar: String? = "",
 
 	@field:SerializedName("sumberGambar")
-	val sumberGambar: String? = null
-)
+	@ColumnInfo(name = "sumberGambar")
+	val sumberGambar: String? = "",
+
+	@ColumnInfo(name = "isFavorite")
+	var isFavorite: Boolean? = false
+) : Parcelable

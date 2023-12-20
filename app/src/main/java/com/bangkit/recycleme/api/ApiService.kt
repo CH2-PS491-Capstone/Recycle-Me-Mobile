@@ -1,9 +1,12 @@
 package com.bangkit.recycleme.api
 
+import com.bangkit.recycleme.models.AddFavoriteResponse
 import com.bangkit.recycleme.models.ArticleResponse
+import com.bangkit.recycleme.models.DeleteFavoriteResponse
 import com.bangkit.recycleme.models.DeleteResponse
 import com.bangkit.recycleme.models.DetailArticleResponse
 import com.bangkit.recycleme.models.DetailResponse
+import com.bangkit.recycleme.models.GetFavoriteArticleResponse
 import com.bangkit.recycleme.models.LoginResponse
 import com.bangkit.recycleme.models.RecyclingAddResponse
 import com.bangkit.recycleme.models.RecyclingResponse
@@ -37,6 +40,10 @@ data class LoginRequest(
 
 data class WithdrawRequest(
     val inputCoins: Int,
+)
+
+data class AddFavoriteRequest(
+    val id: String,
 )
 
 interface ApiService {
@@ -85,4 +92,15 @@ interface ApiService {
     fun getDetailArticle(
         @Path("id") id: String,
     ): Call<DetailArticleResponse>
+
+    @POST("user/favorite")
+    fun addArticleFavorite(@Body request: AddFavoriteRequest): Call<AddFavoriteResponse>
+
+    @DELETE("user/favorite/{id}")
+    fun deleteFavoriteArticle(
+        @Path("id") id: String
+    ): Call<DeleteFavoriteResponse>
+
+    @GET("/user/favorite")
+    fun getFavoriteArticle(): Call<GetFavoriteArticleResponse>
 }

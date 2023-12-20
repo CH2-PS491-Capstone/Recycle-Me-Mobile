@@ -16,7 +16,7 @@ import com.google.android.gms.common.util.CollectionUtils
 //    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, ListArticlesItem> {
 //        return try {
 //            val page = params.key ?: INITIAL_PAGE_INDEX
-//            val responseData = ApiConfig.getApiService("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2d0ZyZlI3dkg1RjNDb2N2NFVSQSIsImVtYWlsIjoibWF1bG1hdWxAZ21haWwuY29tIiwiaWF0IjoxNzAxNTgwODY4LCJleHAiOjE3MDQxNzI4Njh9.IQtZiVnCny77YvRkg42b63yTxCdE5gSuDE60wcsig-M").getArticlePaging(page, params.loadSize)
+//            val responseData = ApiConfig.getApiService("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2d0ZyZlI3dkg1RjNDb2N2NFVSQSIsImVtYWlsIjoibWF1bG1hdWxAZ21haWwuY29tIiwiaWF0IjoxNzAxNTgwODY4LCJleHAiOjE3MDQxNzI4Njh9.IQtZiVnCny77YvRkg42b63yTxCdE5gSuDE60wcsig-M").getArticle(page, params.loadSize)
 //
 //            return LoadResult.Page(
 //                data = responseData.listArticles,

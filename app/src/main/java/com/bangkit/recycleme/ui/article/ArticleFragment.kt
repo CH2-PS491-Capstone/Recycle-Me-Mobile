@@ -91,6 +91,25 @@ class ArticleFragment : Fragment() {
         filterButton.setOnClickListener {
             showFilterMenu(filterButton)
         }
+
+        val scrollView = binding.nestedScrollView
+        val floatingActionButton = binding.scrollTop
+
+        // Atur listener untuk menggulir ke atas saat tombol menggulir ke atas diklik
+        floatingActionButton.setOnClickListener {
+            scrollView.smoothScrollTo(0, 0)
+        }
+
+        // Atur listener untuk menampilkan atau menyembunyikan tombol menggulir ke atas
+        scrollView.setOnScrollChangeListener { _, _, scrollY, _, oldScrollY ->
+            if (scrollY > oldScrollY) {
+                // Scroll ke bawah, sembunyikan tombol
+                floatingActionButton.hide()
+            } else {
+                // Scroll ke atas atau tidak berubah, tampilkan tombol
+                floatingActionButton.show()
+            }
+        }
     }
 
     private fun showFilterMenu(anchor: View) {

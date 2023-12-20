@@ -8,6 +8,7 @@ import com.bangkit.recycleme.di.Injection
 import com.bangkit.recycleme.di.UserRepository
 import com.bangkit.recycleme.ui.article.ArticleViewModel
 import com.bangkit.recycleme.ui.detail.DetailViewModel
+import com.bangkit.recycleme.ui.favorite.FavoriteViewModel
 import com.bangkit.recycleme.welcome.AuthViewModel
 import com.bangkit.recycleme.ui.login.LoginViewModel
 import com.bangkit.recycleme.ui.profile.ProfileViewModel
@@ -50,6 +51,9 @@ class ViewModelFactory(private val repository: UserRepository) : ViewModelProvid
             }
             modelClass.isAssignableFrom(DetailViewModel::class.java) -> {
                 DetailViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(FavoriteViewModel::class.java) -> {
+                FavoriteViewModel(repository) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }

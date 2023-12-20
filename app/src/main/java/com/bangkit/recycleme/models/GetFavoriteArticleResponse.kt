@@ -2,19 +2,19 @@ package com.bangkit.recycleme.models
 
 import com.google.gson.annotations.SerializedName
 
-data class ArticleResponse(
-
-	@field:SerializedName("listArticles")
-	val listArticles: List<ListArticlesItem> = emptyList(),
+data class GetFavoriteArticleResponse(
 
 	@field:SerializedName("error")
 	val error: Boolean? = null,
 
 	@field:SerializedName("message")
-	val message: String? = null
+	val message: String? = null,
+
+	@field:SerializedName("favoriteArticles")
+	val favoriteArticles: List<FavoriteArticlesItem>
 )
 
-data class ListArticlesItem(
+data class FavoriteArticlesItem(
 
 	@field:SerializedName("langkah")
 	val langkah: String? = null,
@@ -24,6 +24,9 @@ data class ListArticlesItem(
 
 	@field:SerializedName("jenis")
 	val jenis: String? = null,
+
+	@field:SerializedName("artikelSerupa")
+	val artikelSerupa: List<String?>? = null,
 
 	@field:SerializedName("sumberArtikel")
 	val sumberArtikel: String? = null,

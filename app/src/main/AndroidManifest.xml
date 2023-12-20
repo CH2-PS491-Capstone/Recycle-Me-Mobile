@@ -22,9 +22,6 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".ui.article.ArticleActivity"
-            android:exported="false" />
-        <activity
             android:name=".withdraw.WithdrawSuccess"
             android:exported="false" />
         <activity

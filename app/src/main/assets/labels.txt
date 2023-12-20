@@ -6,4 +6,3 @@ Kertas (Anorganik)
 Logam (Anorganik)
 Organik
 Plastik (Anorganik)
-Undetected

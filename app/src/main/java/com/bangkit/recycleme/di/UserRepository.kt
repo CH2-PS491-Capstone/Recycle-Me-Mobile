@@ -31,7 +31,7 @@ class UserRepository private constructor(private val userPreference: UserPrefere
 //    fun getArticle(): LiveData<PagingData<ListArticlesItem>> {
 //        return Pager(
 //            config = PagingConfig(
-//                pageSize = 159
+//                pageSize = 5
 //            ),
 //            pagingSourceFactory = {
 //                ArticlePagingSource(apiService)
