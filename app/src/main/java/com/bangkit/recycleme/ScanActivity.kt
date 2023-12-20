@@ -233,8 +233,8 @@ class ScanActivity : AppCompatActivity() {
     private fun loadCategoryImage(categoryIndex: Int) {
         val imageView = binding.iconTrash
         when (categoryIndex) {
-            1,2,3,4,5,7 -> imageView.setImageResource(R.drawable.baseline_restore_from_trash_24_anorganic)
             0 -> imageView.setImageResource(R.drawable.baseline_restore_from_trash_24_b3)
+            1,2,3,4,5,7 -> imageView.setImageResource(R.drawable.baseline_restore_from_trash_24_anorganic)
             6 -> imageView.setImageResource(R.drawable.baseline_restore_from_trash_24_organic)
             else -> imageView.setImageResource(R.drawable.baseline_recycling_24)
         }
@@ -243,8 +243,13 @@ class ScanActivity : AppCompatActivity() {
     private fun getFilterText(categoryIndex: Int, recyclerView: RecyclerView) {
         val category = when (categoryIndex) {
             0 -> "elektronik"
-            1, 2, 3, 4, 5, 7 -> "anorganik"
+            1 -> "kaca"
+            2 -> "kain"
+            3 -> "kardus"
+            4 -> "kertas"
+            5 -> "logam"
             6 -> "organik"
+            7 -> "plastik"
             else -> "tidak diketahui"
         }
 
