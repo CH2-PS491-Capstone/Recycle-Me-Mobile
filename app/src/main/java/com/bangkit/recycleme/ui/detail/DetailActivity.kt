@@ -111,6 +111,8 @@ class DetailActivity : AppCompatActivity() {
 
                         // Set tampilan tombol favorit setelah penambahan
                         story?.isFavorite = true
+                        setResult(Activity.RESULT_OK)
+                        finish()
                     }
                 }
             }

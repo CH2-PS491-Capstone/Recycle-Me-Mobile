@@ -1,5 +1,6 @@
 package com.bangkit.recycleme.ui.article
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -22,11 +23,11 @@ import com.bangkit.recycleme.databinding.FragmentArticleBinding
 import com.bangkit.recycleme.di.UserPreference
 import com.bangkit.recycleme.di.dataStore
 import com.bangkit.recycleme.factory.ViewModelFactory
+import com.bangkit.recycleme.ui.favorite.DETAIL_ACTIVITY_REQUEST_CODE
 import com.bangkit.recycleme.ui.favorite.FavoriteViewModel
 import com.bangkit.recycleme.ui.profile.ProfileViewModel
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
-
 
 class ArticleFragment : Fragment() {
     private lateinit var storyAdapter: ArticleAdapter
@@ -63,7 +64,7 @@ class ArticleFragment : Fragment() {
                     val clickedUser = rekomendasiAdapter.getStory(position)
                     val intent = Intent(requireContext(), DetailActivity::class.java)
                     intent.putExtra("id", clickedUser.id)
-                    startActivity(intent)
+                    startActivityForResult(intent, DETAIL_ACTIVITY_REQUEST_CODE)
                 }
                 recyclerView1.adapter = rekomendasiAdapter
 
@@ -85,7 +86,7 @@ class ArticleFragment : Fragment() {
             val clickedUser = storyAdapter.getStory(position)
             val intent = Intent(requireContext(), DetailActivity::class.java)
             intent.putExtra("id", clickedUser.id)
-            startActivity(intent)
+            startActivityForResult(intent, DETAIL_ACTIVITY_REQUEST_CODE)
         }
         recyclerView2.adapter = storyAdapter
 
@@ -174,5 +175,63 @@ class ArticleFragment : Fragment() {
         val pref = UserPreference.getInstance(requireContext().dataStore)
         val token = runBlocking { pref.getSession().first().token }
         storyViewModel.searchFilter(token, "", category)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == DETAIL_ACTIVITY_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+            val pref = UserPreference.getInstance(requireContext().dataStore)
+            val token = runBlocking { pref.getSession().first().token }
+
+            storyViewModel.loadTotalData(token)
+            storyViewModel.totalFavorite.observe(viewLifecycleOwner) { totalFavorite ->
+                if (totalFavorite > 0) {
+                    binding.rekomendasiRvArtikel.visibility = View.VISIBLE
+                    val recyclerView1 = binding.rvRekomendasi
+                    recyclerView1.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false);
+                    rekomendasiAdapter = RekomendasiAdapter { view ->
+                        val position = recyclerView1.getChildAdapterPosition(view)
+                        val clickedUser = rekomendasiAdapter.getStory(position)
+                        val intent = Intent(requireContext(), DetailActivity::class.java)
+                        intent.putExtra("id", clickedUser.id)
+                        startActivity(intent)
+                    }
+                    recyclerView1.adapter = rekomendasiAdapter
+
+                    storyViewModel.rekomedasiArtikel.observe(viewLifecycleOwner, Observer { rekomendasiArticles ->
+                        rekomendasiAdapter.setStories(rekomendasiArticles)
+                    })
+
+                    storyViewModel.getRekomendasiArtikel(token)
+                } else {
+                    binding.rekomendasiRvArtikel.visibility = View.GONE
+                }
+            }
+
+
+            val recyclerView2 = binding.rvPhone
+            recyclerView2.layoutManager = LinearLayoutManager(requireContext());
+            storyAdapter = ArticleAdapter { view ->
+                val position = recyclerView2.getChildAdapterPosition(view)
+                val clickedUser = storyAdapter.getStory(position)
+                val intent = Intent(requireContext(), DetailActivity::class.java)
+                intent.putExtra("id", clickedUser.id)
+                startActivity(intent)
+            }
+            recyclerView2.adapter = storyAdapter
+
+            storyViewModel.storyList.observe(viewLifecycleOwner, Observer { rekomendasiArticles ->
+                storyAdapter.setStories(rekomendasiArticles)
+            })
+
+            storyViewModel.loadArticle(token)
+
+            storyViewModel.error.observe(viewLifecycleOwner, Observer { errorMessage ->
+                if (errorMessage.isNotEmpty()) {
+                    error(errorMessage)
+                }
+            })
+        }
     }
 }

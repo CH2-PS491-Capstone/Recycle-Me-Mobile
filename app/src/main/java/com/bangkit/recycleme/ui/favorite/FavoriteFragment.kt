@@ -37,10 +37,12 @@ import kotlinx.coroutines.runBlocking
 const val DETAIL_ACTIVITY_REQUEST_CODE = 1001
 class FavoriteFragment : Fragment() {
 
-    private lateinit var adapter: FavoriteAdapter // Anda perlu membuat adapter sesuai kebutuhan Anda
+    private lateinit var adapter: FavoriteAdapter
     private val favoriteViewModel by viewModels<FavoriteViewModel> {
         ViewModelFactory.getInstance(requireContext())
     }
+
+    private lateinit var noFavoriteTextView: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,6 +54,7 @@ class FavoriteFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        noFavoriteTextView = view.findViewById(R.id.noFavoriteTextView)
         val recyclerView = view.findViewById<RecyclerView>(R.id.rvFavorite)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         adapter = FavoriteAdapter { view ->
@@ -70,19 +73,22 @@ class FavoriteFragment : Fragment() {
 
     private fun observeViewModel() {
         favoriteViewModel.storyList.observe(viewLifecycleOwner, Observer { favoriteArticles ->
-            // Update adapter with the new list of favorite articles
             adapter.setStories(favoriteArticles)
+
+            // Show/hide the TextView based on the list of favorite users
+            if (favoriteArticles.isEmpty()) {
+                noFavoriteTextView.visibility = View.VISIBLE
+            } else {
+                noFavoriteTextView.visibility = View.GONE
+            }
         })
 
         favoriteViewModel.error.observe(viewLifecycleOwner, Observer { errorMessage ->
-            // Handle error message
             Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_SHORT).show()
         })
     }
 
     private fun loadFavoriteArticles() {
-        // Load favorite articles from the ViewModel
-        // You need to pass the token to loadArticle function
         val pref = UserPreference.getInstance(requireContext().dataStore)
         val token = runBlocking { pref.getSession().first().token }
         favoriteViewModel.loadArticle(token)
@@ -92,7 +98,6 @@ class FavoriteFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == DETAIL_ACTIVITY_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
-            // Update favorite list here
             loadFavoriteArticles()
         }
     }
