@@ -1,5 +1,6 @@
 package com.bangkit.recycleme.ui.favorite
 
+import android.app.Activity
 import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -33,6 +34,7 @@ import com.bangkit.recycleme.ui.detail.DetailViewModel
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 
+const val DETAIL_ACTIVITY_REQUEST_CODE = 1001
 class FavoriteFragment : Fragment() {
 
     private lateinit var adapter: FavoriteAdapter // Anda perlu membuat adapter sesuai kebutuhan Anda
@@ -57,7 +59,7 @@ class FavoriteFragment : Fragment() {
             val clickedUser = adapter.getStory(position)
             val intent = Intent(requireContext(), DetailActivity::class.java)
             intent.putExtra("id", clickedUser.id)
-            startActivity(intent)
+            startActivityForResult(intent, DETAIL_ACTIVITY_REQUEST_CODE)
         }
 
         recyclerView.adapter = adapter
@@ -84,6 +86,15 @@ class FavoriteFragment : Fragment() {
         val pref = UserPreference.getInstance(requireContext().dataStore)
         val token = runBlocking { pref.getSession().first().token }
         favoriteViewModel.loadArticle(token)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == DETAIL_ACTIVITY_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+            // Update favorite list here
+            loadFavoriteArticles()
+        }
     }
 }
 

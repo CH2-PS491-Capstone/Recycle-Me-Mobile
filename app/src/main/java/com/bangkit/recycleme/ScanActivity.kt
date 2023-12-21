@@ -17,7 +17,6 @@ import androidx.activity.viewModels
 import androidx.core.net.toUri
 import androidx.exifinterface.media.ExifInterface
 import androidx.lifecycle.Observer
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bangkit.recycleme.adapter.ArticleAdapter
@@ -30,7 +29,6 @@ import com.bangkit.recycleme.ui.article.ArticleViewModel
 import com.bangkit.recycleme.ui.camera.CameraActivity
 import com.bangkit.recycleme.ui.detail.DetailActivity
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.support.image.ImageProcessor

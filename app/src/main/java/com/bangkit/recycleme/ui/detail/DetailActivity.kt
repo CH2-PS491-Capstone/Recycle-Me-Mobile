@@ -1,5 +1,6 @@
 package com.bangkit.recycleme.ui.detail
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -87,6 +88,7 @@ class DetailActivity : AppCompatActivity() {
                         if (story != null) {
                             story.isFavorite = false
                         }
+                        setResult(Activity.RESULT_OK)
                         finish()
                     }
                 }

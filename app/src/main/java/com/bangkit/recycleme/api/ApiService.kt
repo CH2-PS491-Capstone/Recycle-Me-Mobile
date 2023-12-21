@@ -8,9 +8,12 @@ import com.bangkit.recycleme.models.DetailArticleResponse
 import com.bangkit.recycleme.models.DetailResponse
 import com.bangkit.recycleme.models.GetFavoriteArticleResponse
 import com.bangkit.recycleme.models.LoginResponse
+import com.bangkit.recycleme.models.RandomArticleResponse
 import com.bangkit.recycleme.models.RecyclingAddResponse
 import com.bangkit.recycleme.models.RecyclingResponse
 import com.bangkit.recycleme.models.RegisterResponse
+import com.bangkit.recycleme.models.RekomendasiArticle
+import com.bangkit.recycleme.models.RekomendasiArticleResponse
 import com.bangkit.recycleme.models.TotalResponse
 import com.bangkit.recycleme.models.WithdrawResponse
 import com.bangkit.recycleme.ui.recyclingresult.RecyclingResult
@@ -103,4 +106,7 @@ interface ApiService {
 
     @GET("/user/favorite")
     fun getFavoriteArticle(): Call<GetFavoriteArticleResponse>
+
+    @GET("articles/random")
+    fun getArtikelRekomendasi(): Call<RandomArticleResponse>
 }

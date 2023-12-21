@@ -7,32 +7,23 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bangkit.recycleme.R
-import com.bangkit.recycleme.models.ListArticlesItem
+import com.bangkit.recycleme.models.RandomArticlesItem
+import com.bangkit.recycleme.models.RekomendasiArticle
 import com.bumptech.glide.Glide
 
-class ArticleAdapter(private val onClickListener: View.OnClickListener) :
-    RecyclerView.Adapter<ArticleAdapter.UserViewHolder>() {
+class RekomendasiAdapter(private val onClickListener: View.OnClickListener) :
+    RecyclerView.Adapter<RekomendasiAdapter.UserViewHolder>() {
 
-    private val storyList: MutableList<ListArticlesItem> = mutableListOf()
+    private val storyList: MutableList<RandomArticlesItem> = mutableListOf()
 
     inner class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val descriptionTextView: TextView = itemView.findViewById(R.id.tv_item_description)
         private val recyclingImageView: ImageView = itemView.findViewById(R.id.img_item_photo)
         private val tvName: TextView = itemView.findViewById(R.id.tv_item_name)
 
-        fun bind(recycling: ListArticlesItem) {
-            val maxWords = 50
-            val fullDescription = recycling.alatBahan
+        fun bind(recycling: RandomArticlesItem) {
 
-            val words = fullDescription?.split(" ")
-
-            val limitedDescription = if (words?.size!! > maxWords) {
-                words.subList(0, maxWords).joinToString(" ") + "..."
-            } else {
-                fullDescription
-            }
-
-            descriptionTextView.text = limitedDescription
+            descriptionTextView.text = recycling.alatBahan.toString()
             tvName.text = recycling.judul
 
             Glide.with(itemView.context)
@@ -60,13 +51,13 @@ class ArticleAdapter(private val onClickListener: View.OnClickListener) :
         return storyList.size
     }
 
-    fun setStories(stories: List<ListArticlesItem>) {
+    fun setStories(stories: List<RandomArticlesItem>) {
         storyList.clear()
         storyList.addAll(stories)
         notifyDataSetChanged()
     }
 
-    fun getStory(position: Int): ListArticlesItem {
+    fun getStory(position: Int): RandomArticlesItem {
         return storyList[position]
     }
 }

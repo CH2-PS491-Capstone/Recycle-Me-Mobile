@@ -13,5 +13,8 @@ data class TotalResponse(
 	val coins: Int? = null,
 
 	@field:SerializedName("totalWithdraw")
-	val totalWithdraw: Int? = null
+	val totalWithdraw: Int? = null,
+
+	@field:SerializedName("favoriteArticles")
+	val favoriteArticles: Int? = null
 )

@@ -7,20 +7,21 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bangkit.recycleme.R
+import com.bangkit.recycleme.models.ArticlesItem
 import com.bangkit.recycleme.models.ListArticlesItem
 import com.bumptech.glide.Glide
 
-class ArticleAdapter(private val onClickListener: View.OnClickListener) :
-    RecyclerView.Adapter<ArticleAdapter.UserViewHolder>() {
+class TesAdapter(private val onClickListener: View.OnClickListener) :
+    RecyclerView.Adapter<TesAdapter.UserViewHolder>() {
 
-    private val storyList: MutableList<ListArticlesItem> = mutableListOf()
+    private val storyList: MutableList<ArticlesItem> = mutableListOf()
 
     inner class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val descriptionTextView: TextView = itemView.findViewById(R.id.tv_item_description)
         private val recyclingImageView: ImageView = itemView.findViewById(R.id.img_item_photo)
         private val tvName: TextView = itemView.findViewById(R.id.tv_item_name)
 
-        fun bind(recycling: ListArticlesItem) {
+        fun bind(recycling: ArticlesItem) {
             val maxWords = 50
             val fullDescription = recycling.alatBahan
 
@@ -47,7 +48,7 @@ class ArticleAdapter(private val onClickListener: View.OnClickListener) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
         val itemView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_row_phone, parent, false)
+            .inflate(R.layout.item_row_favorite, parent, false)
         return UserViewHolder(itemView)
     }
 
@@ -60,13 +61,13 @@ class ArticleAdapter(private val onClickListener: View.OnClickListener) :
         return storyList.size
     }
 
-    fun setStories(stories: List<ListArticlesItem>) {
+    fun setStories(stories: List<ArticlesItem>) {
         storyList.clear()
         storyList.addAll(stories)
         notifyDataSetChanged()
     }
 
-    fun getStory(position: Int): ListArticlesItem {
+    fun getStory(position: Int): ArticlesItem {
         return storyList[position]
     }
 }
