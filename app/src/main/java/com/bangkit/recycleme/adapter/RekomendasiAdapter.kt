@@ -8,7 +8,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bangkit.recycleme.R
 import com.bangkit.recycleme.models.RandomArticlesItem
-import com.bangkit.recycleme.models.RekomendasiArticle
 import com.bumptech.glide.Glide
 
 class RekomendasiAdapter(private val onClickListener: View.OnClickListener) :

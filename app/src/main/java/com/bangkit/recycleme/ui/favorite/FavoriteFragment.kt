@@ -2,7 +2,6 @@ package com.bangkit.recycleme.ui.favorite
 
 import android.app.Activity
 import android.content.Intent
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,27 +9,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.viewModels
-import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bangkit.recycleme.R
-import com.bangkit.recycleme.adapter.ArticleAdapter
 import com.bangkit.recycleme.adapter.FavoriteAdapter
-import com.bangkit.recycleme.database.UserDatabase
-import com.bangkit.recycleme.databinding.FragmentFavoriteBinding
-import com.bangkit.recycleme.databinding.FragmentProfileBinding
-import com.bangkit.recycleme.di.Repository
 import com.bangkit.recycleme.di.UserPreference
 import com.bangkit.recycleme.di.dataStore
 import com.bangkit.recycleme.factory.ViewModelFactory
-import com.bangkit.recycleme.models.Article
-import com.bangkit.recycleme.models.ListArticlesItem
-import com.bangkit.recycleme.ui.article.ArticleViewModel
 import com.bangkit.recycleme.ui.detail.DetailActivity
-import com.bangkit.recycleme.ui.detail.DetailViewModel
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 

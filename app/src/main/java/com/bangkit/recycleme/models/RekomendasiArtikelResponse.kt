@@ -2,7 +2,7 @@ package com.bangkit.recycleme.models
 
 import com.google.gson.annotations.SerializedName
 
-data class RekomendasiArticleResponse(
+data class RekomendasiArtikelResponse(
 
 	@field:SerializedName("error")
 	val error: Boolean? = null,
@@ -10,11 +10,11 @@ data class RekomendasiArticleResponse(
 	@field:SerializedName("message")
 	val message: String? = null,
 
-	@field:SerializedName("article")
-	val article: List<RekomendasiArticle>
+	@field:SerializedName("rekomendasiArtikel")
+	val rekomendasiArtikel: List<RekomendasiArtikel>,
 )
 
-data class RekomendasiArticle(
+data class RekomendasiArtikel(
 
 	@field:SerializedName("langkah")
 	val langkah: String? = null,

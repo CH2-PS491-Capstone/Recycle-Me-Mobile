@@ -10,7 +10,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import com.bangkit.recycleme.SettingsActivity
 import com.bangkit.recycleme.withdraw.WithdrawActivity
 import com.bangkit.recycleme.welcome.AuthViewModel
 import com.bangkit.recycleme.welcome.MainActivity
@@ -100,11 +99,6 @@ class ProfileFragment : Fragment() {
 
         binding.buttonRecycling.setOnClickListener {
             val intent = Intent(requireContext(), RecyclingResult::class.java)
-            startActivity(intent)
-        }
-
-        binding.buttonSetting.setOnClickListener{
-            val intent = Intent(requireContext(), SettingsActivity::class.java)
             startActivity(intent)
         }
 

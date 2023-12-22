@@ -9,20 +9,15 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.bangkit.recycleme.api.ApiConfig
-import com.bangkit.recycleme.api.ApiService
 import com.bangkit.recycleme.di.UserRepository
 import com.bangkit.recycleme.models.ArticleResponse
-import com.bangkit.recycleme.models.ArticlesItem
 import com.bangkit.recycleme.models.FavoriteArticlesItem
 import com.bangkit.recycleme.models.ListArticlesItem
-import com.bangkit.recycleme.models.ListRecyclingItem
 import com.bangkit.recycleme.models.RandomArticleResponse
 import com.bangkit.recycleme.models.RandomArticlesItem
-import com.bangkit.recycleme.models.RecyclingResponse
-import com.bangkit.recycleme.models.RekomendasiArticle
-import com.bangkit.recycleme.models.RekomendasiArticleResponse
+import com.bangkit.recycleme.models.RekomendasiArtikel
+import com.bangkit.recycleme.models.RekomendasiArtikelResponse
 import com.bangkit.recycleme.models.TotalResponse
-import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -34,7 +29,11 @@ class ArticleViewModel(repository: UserRepository) : ViewModel() {
     val totalFavorite: LiveData<Int> get() = _totalFavorite
     val error = MutableLiveData<String>()
     private val _error = MutableLiveData<String>()
+    val rekomendasi = MutableLiveData<List<RekomendasiArtikel>>()
     val error2: LiveData<String> get() = _error
+
+    private val _judulFavorite = MutableLiveData<String>()
+    val judulFavorite: LiveData<String> get() = _judulFavorite
 
     fun loadArticle(token: String) {
         val client = ApiConfig.getApiService(token).getArticle()

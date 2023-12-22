@@ -14,6 +14,7 @@ import com.bangkit.recycleme.welcome.AuthViewModel
 
 import android.net.Uri
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.MediaController
 import android.widget.VideoView
 import androidx.appcompat.app.AppCompatActivity
@@ -32,17 +33,8 @@ class SplashScreen : AppCompatActivity() {
 
         val splashDelay = 2000
 
-        val videoView = findViewById<VideoView>(R.id.videoView)
-        val videoUri = Uri.parse("android.resource://${packageName}/${R.raw.recycle}")
-        videoView.setVideoURI(videoUri)
-
-        // Set media controller to null to prevent it from being displayed
-        videoView.setMediaController(null)
-
-        videoView.setOnPreparedListener { mediaPlayer ->
-            mediaPlayer.isLooping = true
-            mediaPlayer.start()
-        }
+        val imageView = findViewById<ImageView>(R.id.videoView)
+        imageView.setBackgroundResource(R.drawable.logo_splash_white)
 
         viewModel.getSession().observe(this) { user ->
             if (user.isLogin) {

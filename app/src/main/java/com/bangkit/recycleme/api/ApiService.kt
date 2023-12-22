@@ -6,14 +6,14 @@ import com.bangkit.recycleme.models.DeleteFavoriteResponse
 import com.bangkit.recycleme.models.DeleteResponse
 import com.bangkit.recycleme.models.DetailArticleResponse
 import com.bangkit.recycleme.models.DetailResponse
+import com.bangkit.recycleme.models.FavoriteArticlesItem
 import com.bangkit.recycleme.models.GetFavoriteArticleResponse
 import com.bangkit.recycleme.models.LoginResponse
 import com.bangkit.recycleme.models.RandomArticleResponse
 import com.bangkit.recycleme.models.RecyclingAddResponse
 import com.bangkit.recycleme.models.RecyclingResponse
 import com.bangkit.recycleme.models.RegisterResponse
-import com.bangkit.recycleme.models.RekomendasiArticle
-import com.bangkit.recycleme.models.RekomendasiArticleResponse
+import com.bangkit.recycleme.models.RekomendasiArtikelResponse
 import com.bangkit.recycleme.models.TotalResponse
 import com.bangkit.recycleme.models.WithdrawResponse
 import com.bangkit.recycleme.ui.recyclingresult.RecyclingResult
@@ -104,9 +104,17 @@ interface ApiService {
         @Path("id") id: String
     ): Call<DeleteFavoriteResponse>
 
-    @GET("/user/favorite")
+    @GET("user/favorite")
     fun getFavoriteArticle(): Call<GetFavoriteArticleResponse>
 
     @GET("articles/random")
     fun getArtikelRekomendasi(): Call<RandomArticleResponse>
+
+    @GET("articles/recommendation/{judul}")
+    fun getRekomendasiArtikel(
+        @Path("judul") judul: String,
+    ): Call<RekomendasiArtikelResponse>
+
+    @GET("user/favorite")
+    fun judulArtikel(): Call<FavoriteArticlesItem>
 }

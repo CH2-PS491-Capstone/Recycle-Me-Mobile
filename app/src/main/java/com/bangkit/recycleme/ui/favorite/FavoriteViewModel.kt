@@ -2,17 +2,12 @@ package com.bangkit.recycleme.ui.favorite
 
 import android.content.ContentValues
 import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.bangkit.recycleme.api.ApiConfig
-import com.bangkit.recycleme.di.Repository
 import com.bangkit.recycleme.di.UserRepository
-import com.bangkit.recycleme.models.Article
-import com.bangkit.recycleme.models.ArticleResponse
 import com.bangkit.recycleme.models.FavoriteArticlesItem
 import com.bangkit.recycleme.models.GetFavoriteArticleResponse
-import com.bangkit.recycleme.models.ListArticlesItem
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

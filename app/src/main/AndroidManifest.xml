@@ -31,13 +31,10 @@
             android:name=".withdraw.WithdrawActivity"
             android:exported="false" />
         <activity
-            android:name=".SettingsActivity"
+            android:name=".ui.recycling.BridgeActivity"
             android:exported="false" />
         <activity
-            android:name=".BridgeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ScanActivity"
+            android:name=".ui.scan.ScanActivity"
             android:exported="false" />
         <activity
             android:name=".detail.DetailRecyclingActivity"

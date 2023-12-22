@@ -19,7 +19,7 @@
 
     <activity
         android:id="@+id/navigation_notifications"
-        android:name="com.bangkit.recycleme.ScanActivity"
+        android:name="com.bangkit.recycleme.ui.scan.ScanActivity"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_scan" />
 

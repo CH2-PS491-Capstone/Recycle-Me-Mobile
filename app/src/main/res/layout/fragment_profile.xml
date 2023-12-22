@@ -179,7 +179,7 @@
 
         <LinearLayout
             android:id="@+id/buttonRecycling"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
             android:orientation="horizontal"
@@ -219,13 +219,6 @@
 
             </LinearLayout>
 
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_marginLeft="112dp"
-                android:layout_marginTop="10dp"
-                android:layout_height="30dp"
-                android:src="@drawable/baseline_navigate_next_24"/>
-
         </LinearLayout>
 
         <View
@@ -238,7 +231,7 @@
 
         <LinearLayout
             android:id="@+id/buttonWithdraw"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
             android:clickable="true"
@@ -278,13 +271,6 @@
 
             </LinearLayout>
 
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_marginTop="10dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="32dp"
-                android:src="@drawable/baseline_navigate_next_24"/>
-
         </LinearLayout>
 
         <View
@@ -296,72 +282,13 @@
             app:layout_constraintTop_toBottomOf="@id/buttonWithdraw"/>
 
         <LinearLayout
-            android:id="@+id/buttonSetting"
-            android:layout_width="wrap_content"
+            android:id="@+id/buttonLogout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
             android:clickable="true"
             android:orientation="horizontal"
             app:layout_constraintTop_toBottomOf="@id/buttonWithdraw"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:background="@drawable/background_hover"
-            tools:ignore="MissingConstraints"
-            android:focusable="true">
-
-            <ImageView
-                android:id="@+id/iconSetting"
-                android:layout_width="30dp"
-                android:layout_marginTop="10dp"
-                android:layout_height="30dp"
-                android:src="@drawable/baseline_settings_24"/>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginLeft="20dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:text="Settings" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:text="Ubah bahasa" />
-
-            </LinearLayout>
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="215dp"
-                android:layout_height="30dp"
-                android:src="@drawable/baseline_navigate_next_24"/>
-
-        </LinearLayout>
-
-        <View
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#7E7E7E"
-            app:layout_constraintTop_toBottomOf="@id/buttonSetting"/>
-
-        <LinearLayout
-            android:id="@+id/buttonLogout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:clickable="true"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/buttonSetting"
             android:foreground="?android:attr/selectableItemBackground"
             android:background="@drawable/background_hover"
             tools:ignore="MissingConstraints"
@@ -395,13 +322,6 @@
                     android:text="Jangan lupa kembali lagi ya" />
 
             </LinearLayout>
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_marginLeft="110dp"
-                android:layout_marginTop="10dp"
-                android:layout_height="30dp"
-                android:src="@drawable/baseline_navigate_next_24"/>
 
         </LinearLayout>
 

@@ -1,8 +1,6 @@
 package com.bangkit.recycleme.ui.detail
 
 import android.app.Activity
-import android.content.Intent
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
@@ -11,15 +9,10 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
-import com.bangkit.recycleme.models.Phone
-import com.bangkit.recycleme.R
-import com.bangkit.recycleme.database.UserDatabase
 import com.bangkit.recycleme.databinding.ActivityDetailBinding
-import com.bangkit.recycleme.di.Repository
 import com.bangkit.recycleme.di.UserPreference
 import com.bangkit.recycleme.di.dataStore
 import com.bangkit.recycleme.factory.ViewModelFactory
-import com.bangkit.recycleme.ui.recyclingresult.RecyclingResult
 import com.bumptech.glide.Glide
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first

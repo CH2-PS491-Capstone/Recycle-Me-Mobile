@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.animation.AnimationUtils
-import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.viewModels
@@ -13,7 +12,7 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.bangkit.recycleme.BridgeActivity
+import com.bangkit.recycleme.ui.recycling.BridgeActivity
 import com.bangkit.recycleme.R
 import com.bangkit.recycleme.adapter.RecyclingAdapter
 import com.bangkit.recycleme.databinding.ActivityRecyclingResultBinding
@@ -22,9 +21,7 @@ import com.bangkit.recycleme.di.UserPreference
 import com.bangkit.recycleme.di.dataStore
 import com.bangkit.recycleme.factory.ViewModelFactory
 import com.bangkit.recycleme.ui.dashboard.DashboardActivity
-import com.bangkit.recycleme.withdraw.WithdrawActivity
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 

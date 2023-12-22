@@ -7,7 +7,7 @@
     android:background="#075a22"
     tools:context=".ui.splashscreen.SplashScreen">
 
-    <VideoView
+    <ImageView
         android:id="@+id/videoView"
         android:layout_width="200dp"
         android:layout_height="200dp"

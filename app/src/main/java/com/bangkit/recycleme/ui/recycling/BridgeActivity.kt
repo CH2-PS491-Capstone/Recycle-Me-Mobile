@@ -1,8 +1,8 @@
-package com.bangkit.recycleme
+package com.bangkit.recycleme.ui.recycling
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.bangkit.recycleme.ui.recycling.RecyclingFragment
+import com.bangkit.recycleme.R
 
 class BridgeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

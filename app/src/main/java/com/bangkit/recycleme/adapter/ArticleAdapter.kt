@@ -5,9 +5,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.paging.PagingDataAdapter
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bangkit.recycleme.R
 import com.bangkit.recycleme.models.ListArticlesItem
+import com.bangkit.recycleme.models.RandomArticlesItem
 import com.bumptech.glide.Glide
 
 class ArticleAdapter(private val onClickListener: View.OnClickListener) :
@@ -21,18 +24,8 @@ class ArticleAdapter(private val onClickListener: View.OnClickListener) :
         private val tvName: TextView = itemView.findViewById(R.id.tv_item_name)
 
         fun bind(recycling: ListArticlesItem) {
-            val maxWords = 50
-            val fullDescription = recycling.alatBahan
 
-            val words = fullDescription?.split(" ")
-
-            val limitedDescription = if (words?.size!! > maxWords) {
-                words.subList(0, maxWords).joinToString(" ") + "..."
-            } else {
-                fullDescription
-            }
-
-            descriptionTextView.text = limitedDescription
+            descriptionTextView.text = recycling.alatBahan.toString()
             tvName.text = recycling.judul
 
             Glide.with(itemView.context)

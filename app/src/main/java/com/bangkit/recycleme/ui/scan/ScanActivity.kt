@@ -1,4 +1,4 @@
-package com.bangkit.recycleme
+package com.bangkit.recycleme.ui.scan
 
 import android.animation.AnimatorInflater
 import android.app.AlertDialog
@@ -19,6 +19,7 @@ import androidx.exifinterface.media.ExifInterface
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bangkit.recycleme.R
 import com.bangkit.recycleme.adapter.ArticleAdapter
 import com.bangkit.recycleme.databinding.ActivityScanBinding
 import com.bangkit.recycleme.di.UserPreference
